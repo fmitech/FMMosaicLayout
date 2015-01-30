@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		B9C0BC541A7BD5D6008D8C33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC531A7BD5D6008D8C33 /* main.m */; };
 		B9C0BC571A7BD5D6008D8C33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC561A7BD5D6008D8C33 /* AppDelegate.m */; };
-		B9C0BC5A1A7BD5D6008D8C33 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC591A7BD5D6008D8C33 /* ViewController.m */; };
-		B9C0BC5D1A7BD5D6008D8C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC5B1A7BD5D6008D8C33 /* Main.storyboard */; };
+		B9C0BC5D1A7BD5D6008D8C33 /* Example.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC5B1A7BD5D6008D8C33 /* Example.storyboard */; };
 		B9C0BC5F1A7BD5D6008D8C33 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC5E1A7BD5D6008D8C33 /* Images.xcassets */; };
 		B9C0BC621A7BD5D6008D8C33 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC601A7BD5D6008D8C33 /* LaunchScreen.xib */; };
 		B9C0BC6E1A7BD5D6008D8C33 /* FMLightboxMosaicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC6D1A7BD5D6008D8C33 /* FMLightboxMosaicTests.m */; };
+		B9C0BC791A7BDB91008D8C33 /* FMLightboxMosaicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC781A7BDB91008D8C33 /* FMLightboxMosaicLayout.m */; };
+		B9C0BC7F1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC7E1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m */; };
+		B9C0BC821A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC811A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,18 @@
 		B9C0BC531A7BD5D6008D8C33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9C0BC551A7BD5D6008D8C33 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9C0BC561A7BD5D6008D8C33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B9C0BC581A7BD5D6008D8C33 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B9C0BC591A7BD5D6008D8C33 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B9C0BC5C1A7BD5D6008D8C33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B9C0BC5C1A7BD5D6008D8C33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Example.storyboard; sourceTree = "<group>"; };
 		B9C0BC5E1A7BD5D6008D8C33 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B9C0BC611A7BD5D6008D8C33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B9C0BC671A7BD5D6008D8C33 /* FMLightboxMosaicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMLightboxMosaicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C0BC6C1A7BD5D6008D8C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9C0BC6D1A7BD5D6008D8C33 /* FMLightboxMosaicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMLightboxMosaicTests.m; sourceTree = "<group>"; };
+		B9C0BC771A7BDB91008D8C33 /* FMLightboxMosaicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLightboxMosaicLayout.h; sourceTree = "<group>"; };
+		B9C0BC781A7BDB91008D8C33 /* FMLightboxMosaicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLightboxMosaicLayout.m; sourceTree = "<group>"; };
+		B9C0BC7D1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMosaicCollectionViewController.h; sourceTree = "<group>"; };
+		B9C0BC7E1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCollectionViewController.m; sourceTree = "<group>"; };
+		B9C0BC801A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMosaicCollectionViewCell.h; sourceTree = "<group>"; };
+		B9C0BC811A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +87,15 @@
 		B9C0BC501A7BD5D6008D8C33 /* FMLightboxMosaic */ = {
 			isa = PBXGroup;
 			children = (
+				B9C0BC7D1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.h */,
+				B9C0BC7E1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m */,
+				B9C0BC801A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.h */,
+				B9C0BC811A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m */,
 				B9C0BC551A7BD5D6008D8C33 /* AppDelegate.h */,
 				B9C0BC561A7BD5D6008D8C33 /* AppDelegate.m */,
-				B9C0BC581A7BD5D6008D8C33 /* ViewController.h */,
-				B9C0BC591A7BD5D6008D8C33 /* ViewController.m */,
-				B9C0BC5B1A7BD5D6008D8C33 /* Main.storyboard */,
+				B9C0BC771A7BDB91008D8C33 /* FMLightboxMosaicLayout.h */,
+				B9C0BC781A7BDB91008D8C33 /* FMLightboxMosaicLayout.m */,
+				B9C0BC5B1A7BD5D6008D8C33 /* Example.storyboard */,
 				B9C0BC5E1A7BD5D6008D8C33 /* Images.xcassets */,
 				B9C0BC601A7BD5D6008D8C33 /* LaunchScreen.xib */,
 				B9C0BC511A7BD5D6008D8C33 /* Supporting Files */,
@@ -199,7 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9C0BC5D1A7BD5D6008D8C33 /* Main.storyboard in Resources */,
+				B9C0BC5D1A7BD5D6008D8C33 /* Example.storyboard in Resources */,
 				B9C0BC621A7BD5D6008D8C33 /* LaunchScreen.xib in Resources */,
 				B9C0BC5F1A7BD5D6008D8C33 /* Images.xcassets in Resources */,
 			);
@@ -219,9 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9C0BC5A1A7BD5D6008D8C33 /* ViewController.m in Sources */,
+				B9C0BC791A7BDB91008D8C33 /* FMLightboxMosaicLayout.m in Sources */,
 				B9C0BC571A7BD5D6008D8C33 /* AppDelegate.m in Sources */,
+				B9C0BC821A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m in Sources */,
 				B9C0BC541A7BD5D6008D8C33 /* main.m in Sources */,
+				B9C0BC7F1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,12 +256,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B9C0BC5B1A7BD5D6008D8C33 /* Main.storyboard */ = {
+		B9C0BC5B1A7BD5D6008D8C33 /* Example.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B9C0BC5C1A7BD5D6008D8C33 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Example.storyboard;
 			sourceTree = "<group>";
 		};
 		B9C0BC601A7BD5D6008D8C33 /* LaunchScreen.xib */ = {

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FMMosaicCollectionViewController.h
 //  FMLightboxMosaic
 //
 //  Created by Julian Villella on 2015-01-30.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface FMMosaicCollectionViewController : UICollectionViewController
 
 @end
-
