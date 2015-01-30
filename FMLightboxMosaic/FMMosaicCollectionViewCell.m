@@ -8,6 +8,12 @@
 
 #import "FMMosaicCollectionViewCell.h"
 
+static NSString * const kFMMosaicCellReuseIdentifier = @"FMMosaicCollectionViewCellReuseIdentifier";
+
 @implementation FMMosaicCollectionViewCell
+
++ (NSString *)reuseIdentifier {
+    return kFMMosaicCellReuseIdentifier;
+}
 
 @end

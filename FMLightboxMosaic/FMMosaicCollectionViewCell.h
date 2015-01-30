@@ -10,4 +10,6 @@
 
 @interface FMMosaicCollectionViewCell : UICollectionViewCell
 
++ (NSString *)reuseIdentifier;
+
 @end
