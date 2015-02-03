@@ -8,6 +8,26 @@
 
 #import "FMLightboxMosaicLayout.h"
 
+@interface FMLightboxMosaicLayout ()
+
+@end
+
 @implementation FMLightboxMosaicLayout
+
+- (void)prepareLayout {
+    
+}
+
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+    return nil;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (CGSize)collectionViewContentSize {
+    return CGSizeZero;
+}
 
 @end
