@@ -8,10 +8,11 @@
 
 #import "FMMosaicCollectionViewController.h"
 #import "FMMosaicCollectionViewCell.h"
+#import "FMLightboxMosaicLayout.h"
 
 static const CGFloat kFMStatusBarHeight = 20.0;
 
-@interface FMMosaicCollectionViewController () <UICollectionViewDelegateFlowLayout>
+@interface FMMosaicCollectionViewController () <FMMosaicLayoutDelegate>
 
 @end
 
@@ -21,6 +22,10 @@ static const CGFloat kFMStatusBarHeight = 20.0;
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor yellowColor];
     self.collectionView.contentInset = UIEdgeInsetsMake(kFMStatusBarHeight, 0.0, 0.0, 0.0);
+    
+    if([self.collectionViewLayout isKindOfClass:[FMLightboxMosaicLayout class]]) {
+        [self.collectionViewLayout performSelector:@selector(setDelegate:) withObject:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +77,16 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
+}
+
+#pragma mark <FMMosaicLayoutDelegate>
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout numberOfColumnsInSection:(NSInteger)section {
+    return 2;
+}
+
+- (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return FMMosaicCellSizeSmall;
 }
 
 @end
