@@ -127,7 +127,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
     NSInteger indexOfShortestColumn = 0;
     for(int i = 1; i < columnHeights.count; i++) {
-        if(columnHeights[i] < columnHeights[indexOfShortestColumn])
+        if([columnHeights[i] floatValue] < [columnHeights[indexOfShortestColumn] floatValue])
             indexOfShortestColumn = i;
     }
     

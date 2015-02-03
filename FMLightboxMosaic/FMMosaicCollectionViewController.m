@@ -36,7 +36,7 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 10;
+    return 1;
 }
 
 
@@ -82,7 +82,7 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 #pragma mark <FMMosaicLayoutDelegate>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout numberOfColumnsInSection:(NSInteger)section {
-    return 2;
+    return 4;
 }
 
 - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
