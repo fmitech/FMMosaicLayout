@@ -116,7 +116,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][columnIndex] floatValue];
     
     UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:cellIndexPath];
-    CGPoint origin = CGPointMake(columnIndex * [self columnWidthInSection:sectionIndex], columnHeight);
+    CGPoint origin = CGPointMake(columnIndex * [self columnWidthInSection:sectionIndex], [self verticalOffsetForSection:sectionIndex] + columnHeight);
     layoutAttributes.frame = CGRectMake(origin.x, origin.y, cellHeight, cellHeight);
     [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
     
@@ -126,6 +126,18 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 - (CGFloat)cellHeightForMosaicSize:(FMMosaicCellSize)mosaicCellSize section:(NSInteger)section {
     CGFloat bigCellSize = self.collectionViewContentSize.width / [self numberOfColumnsInSection:section];
     return mosaicCellSize == FMMosaicCellSizeBig ? bigCellSize : bigCellSize / 2.0;
+}
+
+- (CGFloat)verticalOffsetForSection:(NSInteger)section {
+    CGFloat verticalOffset = 0.0;
+    
+    for (NSInteger i = 0; i < section; i++) {
+        NSInteger indexOfTallestColumn = [self indexOfTallestColumnInSection:i];
+        CGFloat sectionHeight = [self.columnHeightsInSection[i][indexOfTallestColumn] floatValue];
+        verticalOffset += sectionHeight;
+    }
+    
+    return verticalOffset;
 }
 
 - (NSInteger)indexOfShortestColumnInSection:(NSInteger)section {
@@ -138,6 +150,18 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     }
     
     return indexOfShortestColumn;
+}
+
+- (NSInteger)indexOfTallestColumnInSection:(NSInteger)section {
+    NSArray *columnHeights = [self.columnHeightsInSection objectAtIndex:section];
+    
+    NSInteger indexOfTallestColumn = 0;
+    for(int i = 1; i < columnHeights.count; i++) {
+        if([columnHeights[i] floatValue] > [columnHeights[indexOfTallestColumn] floatValue])
+            indexOfTallestColumn = i;
+    }
+    
+    return indexOfTallestColumn;
 }
 
 - (NSInteger)numberOfColumnsInSection:(NSInteger)section {
