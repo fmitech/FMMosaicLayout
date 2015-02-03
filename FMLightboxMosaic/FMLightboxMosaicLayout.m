@@ -41,9 +41,9 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
                 [smallMosaicCellIndexPathsBuffer addObject:cellIndexPath];
                 if(smallMosaicCellIndexPathsBuffer.count >= 2) {
                     [self addLayoutAttributeForIndexPath:smallMosaicCellIndexPathsBuffer[0] inColumn:indexOfShortestColumn];
-                    [self addLayoutAttributeForIndexPath:smallMosaicCellIndexPathsBuffer[1] inColumn:indexOfShortestColumn];
+                    [self addLayoutAttributeForIndexPath:smallMosaicCellIndexPathsBuffer[1] inColumn:indexOfShortestColumn + 1];
                     
-                    [smallMosaicCellIndexPathsBuffer removeAllObjects];                    
+                    [smallMosaicCellIndexPathsBuffer removeAllObjects];
                 }
             }
         }
