@@ -26,13 +26,14 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
 - (void)prepareLayout {
     for (NSInteger sectionIndex = 0; sectionIndex < [self.collectionView numberOfSections]; sectionIndex++) {
+        
+        NSInteger smallMosaicCellsBufferCount = 0;
         for (NSInteger cellIndex = 0; cellIndex < [self.collectionView numberOfItemsInSection:sectionIndex]; cellIndex++) {
             NSIndexPath *cellIndexPath = [NSIndexPath indexPathForItem:cellIndex inSection:sectionIndex];
             
             NSInteger indexOfShortestColumn = [self indexOfShortestColumnInSection:sectionIndex];
             FMMosaicCellSize mosaicCellSize = [self mosaicCellSizeForItemAtIndexPath:cellIndexPath];
-            
-            NSInteger smallMosaicCellsBufferCount = 0;
+
             if (mosaicCellSize == FMMosaicCellSizeBig) {
                 CGFloat cellHeight = [self cellHeightForMosaicSize:FMMosaicCellSizeBig section:sectionIndex];
                 CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] floatValue];
@@ -104,6 +105,14 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     }
     
     return _columnHeightsInSection;
+}
+
+- (NSMutableDictionary *)layoutAttributes {
+    if (!_layoutAttributes) {
+        _layoutAttributes = [[NSMutableDictionary alloc] init];
+    }
+    
+    return _layoutAttributes;
 }
 
 #pragma mark - Helpers
