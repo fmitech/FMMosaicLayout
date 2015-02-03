@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class FMLightboxMosaicLayout;
+
+typedef NS_ENUM(NSUInteger, FMMosaicCellSize) {
+    FMMosaicCellSizeSmall,
+    FMMosaicCellSizeBig
+};
+
+@protocol FMMosaicLayout <NSObject>
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout columnWidthForSectionAtIndex:(NSInteger)section;
+
+- (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout cellSizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
 @interface FMLightboxMosaicLayout : UICollectionViewLayout
 
 @end
