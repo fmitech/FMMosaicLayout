@@ -9,41 +9,93 @@
 #import "FMLightboxMosaicLayout.h"
 #import <objc/message.h>
 
-static const CGFloat kFMDefaultColumnWidth = 100.0;
+static const NSInteger kFMDefaultNumberOfColumnsInSection = 2;
 static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
 @interface FMLightboxMosaicLayout ()
 
-@property (nonatomic, strong) NSMutableArray *columns;
+/**
+ *  A 2D array holding an array of columns heights for each section
+ */
+@property (nonatomic, strong) NSMutableArray *columnHeightsInSection;
 
 @end
 
 @implementation FMLightboxMosaicLayout
 
 - (void)prepareLayout {
-    
+    for (NSInteger sectionIndex = 0; sectionIndex < [self.collectionView numberOfSections]; sectionIndex++) {
+        for (NSInteger cellIndex = 0; cellIndex < [self.collectionView numberOfItemsInSection:sectionIndex]; cellIndex++) {
+            NSIndexPath *cellIndexPath = [NSIndexPath indexPathForItem:cellIndex inSection:sectionIndex];
+            
+            NSInteger indexOfShortestColumn = [self indexOfShortestColumnInSection:sectionIndex];
+            FMMosaicCellSize cellSize = [self cellSizeForItemAtIndexPath:cellIndexPath];
+            
+            if (cellSize == FMMosaicCellSizeBig) {
+                
+            } else { // cellSize == FMMosaicCellSizeSmall
+                
+            }
+        }
+    }
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+#warning Implement me
     return nil;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+#warning Implement me
     return nil;
 }
 
 - (CGSize)collectionViewContentSize {
+#warning Implement me
     return CGSizeZero;
+}
+
+#pragma mark - Accessors
+
+- (NSArray *)columnHeightsInSection {
+    if (!_columnHeightsInSection) {
+        NSInteger sectionCount = [self.collectionView numberOfSections];
+        _columnHeightsInSection = [[NSMutableArray alloc] initWithCapacity:sectionCount];
+        
+        for (NSInteger sectionIndex = 0; sectionIndex < sectionCount; sectionIndex++) {
+            NSInteger numberOfColumnsInSection = [self numberOfColumnsInSection:sectionIndex];
+            NSMutableArray *columnHeights = [[NSMutableArray alloc] initWithCapacity:numberOfColumnsInSection];
+            for (NSInteger columnIndex = 0; columnIndex < numberOfColumnsInSection; columnIndex++) {
+                [columnHeights addObject:@0.0];
+            }
+            
+            [_columnHeightsInSection addObject:columnHeights];
+        }
+    }
+    
+    return _columnHeightsInSection;
 }
 
 #pragma mark - Helpers
 
-- (CGFloat)columnWidthForSectionAtIndex:(NSInteger)section {
-    CGFloat columnWidth = kFMDefaultColumnWidth;
-    if ([self.delegate respondsToSelector:@selector(collectionView:layout:columnWidthForSectionAtIndex:)]) {
-        columnWidth = [self.delegate collectionView:self.collectionView layout:self columnWidthForSectionAtIndex:section];
+- (NSInteger)indexOfShortestColumnInSection:(NSInteger)section {
+    NSArray *columnHeights = [self.columnHeightsInSection objectAtIndex:section];
+
+    NSInteger indexOfShortestColumn = 0;
+    for(int i = 1; i < columnHeights.count; i++) {
+        if(columnHeights[i] < columnHeights[indexOfShortestColumn])
+            indexOfShortestColumn = i;
     }
-    return columnWidth;
+    
+    return indexOfShortestColumn;
+}
+
+- (NSInteger)numberOfColumnsInSection:(NSInteger)section {
+    NSInteger columnCount = kFMDefaultNumberOfColumnsInSection;
+    if ([self.delegate respondsToSelector:@selector(collectionView:layout:numberOfColumnsInSection:)]) {
+        columnCount = [self.delegate collectionView:self.collectionView layout:self numberOfColumnsInSection:section];
+    }
+    return columnCount;
 }
 
 - (FMMosaicCellSize)cellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {

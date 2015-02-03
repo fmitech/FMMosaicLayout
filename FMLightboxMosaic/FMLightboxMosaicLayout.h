@@ -17,8 +17,7 @@ typedef NS_ENUM(NSUInteger, FMMosaicCellSize) {
 
 @protocol FMMosaicLayoutDelegate <NSObject>
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout columnWidthForSectionAtIndex:(NSInteger)section;
-
+- (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout numberOfColumnsInSection:(NSInteger)section;
 - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout cellSizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
