@@ -27,7 +27,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 - (void)prepareLayout {
     for (NSInteger sectionIndex = 0; sectionIndex < [self.collectionView numberOfSections]; sectionIndex++) {
         
-        NSInteger smallMosaicCellsBufferCount = 0;
+        NSMutableArray *smallMosaicCellIndexPathsBuffer = [[NSMutableArray alloc] initWithCapacity:2];
         for (NSInteger cellIndex = 0; cellIndex < [self.collectionView numberOfItemsInSection:sectionIndex]; cellIndex++) {
             NSIndexPath *cellIndexPath = [NSIndexPath indexPathForItem:cellIndex inSection:sectionIndex];
             
@@ -38,14 +38,14 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
                 [self addLayoutAttributeForIndexPath:cellIndexPath inColumn:indexOfShortestColumn];
                 
             } else if(mosaicCellSize == FMMosaicCellSizeSmall) {
-                smallMosaicCellsBufferCount++;
-                if(smallMosaicCellsBufferCount >= 2) {
-                    smallMosaicCellsBufferCount = 0;
+                [smallMosaicCellIndexPathsBuffer addObject:cellIndexPath];
+                if(smallMosaicCellIndexPathsBuffer.count >= 2) {
+                    [self addLayoutAttributeForIndexPath:smallMosaicCellIndexPathsBuffer[0] inColumn:indexOfShortestColumn];
+                    [self addLayoutAttributeForIndexPath:smallMosaicCellIndexPathsBuffer[1] inColumn:indexOfShortestColumn];
                     
-                    [self addLayoutAttributeForIndexPath:cellIndexPath inColumn:indexOfShortestColumn];
+                    [smallMosaicCellIndexPathsBuffer removeAllObjects];                    
                 }
             }
-            
         }
     }
 }
