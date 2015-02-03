@@ -47,6 +47,13 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
                 }
             }
         }
+        
+        // Handle odd number of small mosaic cells
+        if (smallMosaicCellIndexPathsBuffer.count > 0) {
+            NSInteger indexOfShortestColumn = [self indexOfShortestColumnInSection:sectionIndex];
+            [self addLayoutAttributeForIndexPath:smallMosaicCellIndexPathsBuffer[0] inColumn:indexOfShortestColumn];
+            [smallMosaicCellIndexPathsBuffer removeAllObjects];
+        }
     }
 }
 
