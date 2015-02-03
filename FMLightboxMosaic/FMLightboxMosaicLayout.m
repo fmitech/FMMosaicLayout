@@ -18,6 +18,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
  *  A 2D array holding an array of columns heights for each section
  */
 @property (nonatomic, strong) NSMutableArray *columnHeightsInSection;
+@property (nonatomic, strong) NSMutableDictionary *layoutAttributes;
 
 @end
 
@@ -29,25 +30,56 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
             NSIndexPath *cellIndexPath = [NSIndexPath indexPathForItem:cellIndex inSection:sectionIndex];
             
             NSInteger indexOfShortestColumn = [self indexOfShortestColumnInSection:sectionIndex];
-            FMMosaicCellSize cellSize = [self cellSizeForItemAtIndexPath:cellIndexPath];
+            FMMosaicCellSize mosaicCellSize = [self mosaicCellSizeForItemAtIndexPath:cellIndexPath];
             
-            if (cellSize == FMMosaicCellSizeBig) {
+            NSInteger smallMosaicCellsBufferCount = 0;
+            if (mosaicCellSize == FMMosaicCellSizeBig) {
+                CGFloat cellHeight = [self cellHeightForMosaicSize:FMMosaicCellSizeBig section:sectionIndex];
+                CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] floatValue];
+                columnHeight += cellHeight;
+                self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] = @(columnHeight);
                 
-            } else { // cellSize == FMMosaicCellSizeSmall
+#warning Needs to calculate attribute origin
                 
+                UICollectionViewLayoutAttributes *layoutAttributes = [[UICollectionViewLayoutAttributes alloc] init];
+                layoutAttributes.frame = CGRectMake(0.0, 0.0, cellHeight, cellHeight);
+                [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
+                
+            } else if(mosaicCellSize == FMMosaicCellSizeSmall) {
+                smallMosaicCellsBufferCount++;
+                if(smallMosaicCellsBufferCount >= 2) {
+                    smallMosaicCellsBufferCount = 0;
+                    
+                    CGFloat cellHeight = [self cellHeightForMosaicSize:FMMosaicCellSizeBig section:sectionIndex];
+                    CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] floatValue];
+                    columnHeight += cellHeight;
+                    self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] = @(columnHeight);
+
+#warning Needs to calculate attribute origin
+                    
+                    UICollectionViewLayoutAttributes *layoutAttributes = [[UICollectionViewLayoutAttributes alloc] init];
+                    layoutAttributes.frame = CGRectMake(0.0, 0.0, cellHeight, cellHeight);
+                    [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
+                }
             }
         }
     }
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-#warning Implement me
-    return nil;
+    NSMutableArray *attributesInRect = [[NSMutableArray alloc] initWithCapacity:self.layoutAttributes.count];
+    
+    [self.layoutAttributes enumerateKeysAndObjectsUsingBlock:^(NSIndexPath *indexPath, UICollectionViewLayoutAttributes *attributes, BOOL *stop) {
+        if(CGRectIntersectsRect(rect, attributes.frame)){
+            [attributesInRect addObject:attributes];
+        }
+    }];
+    
+    return attributesInRect;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-#warning Implement me
-    return nil;
+    return [self.layoutAttributes objectForKey:indexPath];
 }
 
 - (CGSize)collectionViewContentSize {
@@ -78,6 +110,11 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
 #pragma mark - Helpers
 
+- (CGFloat)cellHeightForMosaicSize:(FMMosaicCellSize)mosaicCellSize section:(NSInteger)section {
+    CGFloat bigCellSize = self.collectionViewContentSize.width / [self numberOfColumnsInSection:section];
+    return mosaicCellSize == FMMosaicCellSizeBig ? bigCellSize : bigCellSize / 2.0;
+}
+
 - (NSInteger)indexOfShortestColumnInSection:(NSInteger)section {
     NSArray *columnHeights = [self.columnHeightsInSection objectAtIndex:section];
 
@@ -98,10 +135,10 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     return columnCount;
 }
 
-- (FMMosaicCellSize)cellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (FMMosaicCellSize)mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     FMMosaicCellSize cellSize = kFMDefaultCellSize;
-    if ([self.delegate respondsToSelector:@selector(collectionView:layout:cellSizeForItemAtIndexPath:)]) {
-        cellSize = [self.delegate collectionView:self.collectionView layout:self cellSizeForItemAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(collectionView:layout:mosaicCellSizeForItemAtIndexPath:)]) {
+        cellSize = [self.delegate collectionView:self.collectionView layout:self mosaicCellSizeForItemAtIndexPath:indexPath];
     }
     return cellSize;
 }
