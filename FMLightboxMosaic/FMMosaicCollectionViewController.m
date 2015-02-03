@@ -9,7 +9,9 @@
 #import "FMMosaicCollectionViewController.h"
 #import "FMMosaicCollectionViewCell.h"
 
-@interface FMMosaicCollectionViewController ()
+static const CGFloat kFMStatusBarHeight = 20.0;
+
+@interface FMMosaicCollectionViewController () <UICollectionViewDelegateFlowLayout>
 
 @end
 
@@ -17,14 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerClass:[FMMosaicCollectionViewCell class] forCellWithReuseIdentifier:[FMMosaicCollectionViewCell reuseIdentifier]];
-    
-    // Do any additional setup after loading the view.
+    self.collectionView.backgroundColor = [UIColor yellowColor];
+    self.collectionView.contentInset = UIEdgeInsetsMake(kFMStatusBarHeight, 0.0, 0.0, 0.0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,21 +31,20 @@
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 3;
+    return 10;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 10;
+    return 80;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FMMosaicCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
+    FMMosaicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FMMosaicCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
     
     // Configure the cell
-    
+    cell.titleLabel.text = [NSString stringWithFormat:@"Cell %li", (long)indexPath.row];
+    cell.backgroundColor = [UIColor blueColor];
     return cell;
 }
 
@@ -69,19 +64,14 @@
 }
 */
 
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+#pragma mark <UICollectionViewDelegateFlowLayout>
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 10.0;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
 }
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

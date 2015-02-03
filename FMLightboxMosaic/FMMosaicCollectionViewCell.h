@@ -12,4 +12,6 @@
 
 + (NSString *)reuseIdentifier;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end
