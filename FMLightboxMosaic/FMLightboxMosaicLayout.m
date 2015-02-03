@@ -7,8 +7,14 @@
 //
 
 #import "FMLightboxMosaicLayout.h"
+#import <objc/message.h>
+
+static const CGFloat kFMDefaultColumnWidth = 100.0;
+static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
 @interface FMLightboxMosaicLayout ()
+
+@property (nonatomic, strong) NSMutableArray *columns;
 
 @end
 
@@ -28,6 +34,24 @@
 
 - (CGSize)collectionViewContentSize {
     return CGSizeZero;
+}
+
+#pragma mark - Helpers
+
+- (CGFloat)columnWidthForSectionAtIndex:(NSInteger)section {
+    CGFloat columnWidth = kFMDefaultColumnWidth;
+    if ([self.delegate respondsToSelector:@selector(collectionView:layout:columnWidthForSectionAtIndex:)]) {
+        columnWidth = [self.delegate collectionView:self.collectionView layout:self columnWidthForSectionAtIndex:section];
+    }
+    return columnWidth;
+}
+
+- (FMMosaicCellSize)cellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    FMMosaicCellSize cellSize = kFMDefaultCellSize;
+    if ([self.delegate respondsToSelector:@selector(collectionView:layout:cellSizeForItemAtIndexPath:)]) {
+        cellSize = [self.delegate collectionView:self.collectionView layout:self cellSizeForItemAtIndexPath:indexPath];
+    }
+    return cellSize;
 }
 
 @end
