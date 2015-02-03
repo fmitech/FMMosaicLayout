@@ -38,7 +38,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
                 CGFloat cellHeight = [self cellHeightForMosaicSize:FMMosaicCellSizeBig section:sectionIndex];
                 CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] floatValue];
                 
-                UICollectionViewLayoutAttributes *layoutAttributes = [[UICollectionViewLayoutAttributes alloc] init];
+                UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:cellIndexPath];
                 CGPoint origin = CGPointMake(indexOfShortestColumn * [self columnWidthInSection:sectionIndex], columnHeight);
                 layoutAttributes.frame = CGRectMake(origin.x, origin.y, cellHeight, cellHeight);
                 [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
@@ -52,9 +52,9 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
                     
                     CGFloat cellHeight = [self cellHeightForMosaicSize:FMMosaicCellSizeBig section:sectionIndex];
                     CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] floatValue];
-                    
+
+                    UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:cellIndexPath];
                     CGPoint origin = CGPointMake(indexOfShortestColumn * [self columnWidthInSection:sectionIndex], columnHeight);
-                    UICollectionViewLayoutAttributes *layoutAttributes = [[UICollectionViewLayoutAttributes alloc] init];
                     layoutAttributes.frame = CGRectMake(origin.x, origin.y, cellHeight, cellHeight);
                     [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
                     
