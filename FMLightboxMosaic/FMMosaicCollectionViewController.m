@@ -48,7 +48,7 @@ static const CGFloat kFMStatusBarHeight = 20.0;
     FMMosaicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FMMosaicCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
     
     // Configure the cell
-    cell.titleLabel.text = [NSString stringWithFormat:@"Cell %li", (long)indexPath.row];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.row];
     cell.backgroundColor = [UIColor blueColor];
     return cell;
 }
@@ -86,7 +86,7 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 }
 
 - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return FMMosaicCellSizeSmall;
+    return FMMosaicCellSizeBig;
 }
 
 @end
