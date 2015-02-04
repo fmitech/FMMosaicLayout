@@ -426,6 +426,7 @@
 				B9C0BC731A7BD5D6008D8C33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9C0BC741A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMLightboxMosaicTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +435,7 @@
 				B9C0BC761A7BD5D6008D8C33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

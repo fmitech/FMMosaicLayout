@@ -23,8 +23,7 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor blackColor];
-    self.collectionView.contentInset = UIEdgeInsetsMake(kFMStatusBarHeight, 0.0, 0.0, 0.0);
-    
+
     if([self.collectionViewLayout isKindOfClass:[FMLightboxMosaicLayout class]]) {
         [self.collectionViewLayout performSelector:@selector(setDelegate:) withObject:self];
     }
@@ -114,6 +113,12 @@ static const CGFloat kFMStatusBarHeight = 20.0;
         ];
     }
     return _stockImages;
+}
+
+#pragma mark - Status Bar
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end
