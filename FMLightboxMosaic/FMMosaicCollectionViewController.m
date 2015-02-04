@@ -10,8 +10,6 @@
 #import "FMMosaicCollectionViewCell.h"
 #import "FMLightboxMosaicLayout.h"
 
-static const CGFloat kFMStatusBarHeight = 20.0;
-
 @interface FMMosaicCollectionViewController () <FMMosaicLayoutDelegate>
 
 @property (nonatomic, strong) NSArray *stockImages;
@@ -52,39 +50,7 @@ static const CGFloat kFMStatusBarHeight = 20.0;
     cell.titleLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.item];
     cell.imageView.image = self.stockImages[indexPath.item % self.stockImages.count];
     
-//    if (indexPath.section % 2 == 0) {
-//        cell.backgroundColor = @[[UIColor orangeColor], [UIColor blueColor]][indexPath.item % 2];
-//    } else {
-//        cell.backgroundColor = @[[UIColor redColor], [UIColor greenColor]][indexPath.item % 2];
-//    }
-
     return cell;
-}
-
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-#pragma mark <UICollectionViewDelegateFlowLayout>
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 10.0;
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
 }
 
 #pragma mark <FMMosaicLayoutDelegate>
