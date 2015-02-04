@@ -14,13 +14,15 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 
 @interface FMMosaicCollectionViewController () <FMMosaicLayoutDelegate>
 
+@property (nonatomic, strong) NSArray *stockImages;
+
 @end
 
 @implementation FMMosaicCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.collectionView.backgroundColor = [UIColor yellowColor];
+    self.collectionView.backgroundColor = [UIColor blackColor];
     self.collectionView.contentInset = UIEdgeInsetsMake(kFMStatusBarHeight, 0.0, 0.0, 0.0);
     
     if([self.collectionViewLayout isKindOfClass:[FMLightboxMosaicLayout class]]) {
@@ -48,14 +50,15 @@ static const CGFloat kFMStatusBarHeight = 20.0;
     FMMosaicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FMMosaicCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
     
     // Configure the cell
-    cell.titleLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.row];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.item];
+    cell.imageView.image = self.stockImages[indexPath.item % self.stockImages.count];
     
-    if (indexPath.section % 2 == 0) {
-        cell.backgroundColor = @[[UIColor orangeColor], [UIColor blueColor]][indexPath.item % 2];
-    } else {
-        cell.backgroundColor = @[[UIColor redColor], [UIColor greenColor]][indexPath.item % 2];
-    }
-    
+//    if (indexPath.section % 2 == 0) {
+//        cell.backgroundColor = @[[UIColor orangeColor], [UIColor blueColor]][indexPath.item % 2];
+//    } else {
+//        cell.backgroundColor = @[[UIColor redColor], [UIColor greenColor]][indexPath.item % 2];
+//    }
+
     return cell;
 }
 
@@ -88,11 +91,29 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 #pragma mark <FMMosaicLayoutDelegate>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout numberOfColumnsInSection:(NSInteger)section {
-    return 4;
+    return 2;
 }
 
 - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return arc4random_uniform(2) == 0 ? FMMosaicCellSizeSmall : FMMosaicCellSizeBig;
+}
+
+#pragma mark - Accessors
+
+- (NSArray *)stockImages {
+    if (!_stockImages) {
+        _stockImages = @[
+            [UIImage imageNamed:@"balcony"],
+            [UIImage imageNamed:@"birds"],
+            [UIImage imageNamed:@"bridge"],
+            [UIImage imageNamed:@"bridge2"],
+            [UIImage imageNamed:@"city"],
+            [UIImage imageNamed:@"forest"],
+            [UIImage imageNamed:@"houses"],
+            [UIImage imageNamed:@"mountains"]
+        ];
+    }
+    return _stockImages;
 }
 
 @end

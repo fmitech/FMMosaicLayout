@@ -20,7 +20,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8K1-mT-4Zs">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8K1-mT-4Zs">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ug-ZP-hR4">
@@ -50,6 +50,7 @@
                                 </constraints>
                                 <size key="customSize" width="100" height="100"/>
                                 <connections>
+                                    <outlet property="imageView" destination="8K1-mT-4Zs" id="4mt-FM-cpe"/>
                                     <outlet property="titleLabel" destination="4Ug-ZP-hR4" id="blJ-vU-zl7"/>
                                 </connections>
                             </collectionViewCell>

@@ -131,7 +131,6 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
 #pragma mark - Helpers
 
-
 - (void)addSmallMosaicLayoutAttributesForIndexPath:(NSIndexPath *)cellIndexPath inColumn:(NSInteger)column bufferIndex:(NSInteger)bufferIndex {
     NSInteger sectionIndex = cellIndexPath.section;
     
