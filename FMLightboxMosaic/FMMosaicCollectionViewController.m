@@ -65,6 +65,14 @@ static const NSInteger kFMMosaicColumnCount = 2;
     return (indexPath.item % 4 == 0) ? FMMosaicCellSizeBig : FMMosaicCellSizeSmall;
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsZero;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout interitemSpacingForSectionAtIndex:(NSInteger)section {
+    return 1.0;
+}
+
 #pragma mark - Accessors
 
 - (NSArray *)stockImages {
