@@ -36,12 +36,12 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 3;
+    return 7;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 11;
+    return arc4random_uniform(11) + 10; // [10, 20]
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,7 +49,13 @@ static const CGFloat kFMStatusBarHeight = 20.0;
     
     // Configure the cell
     cell.titleLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.row];
-    cell.backgroundColor = [UIColor blueColor];
+    
+    if (indexPath.section % 2 == 0) {
+        cell.backgroundColor = @[[UIColor orangeColor], [UIColor blueColor]][indexPath.item % 2];
+    } else {
+        cell.backgroundColor = @[[UIColor redColor], [UIColor greenColor]][indexPath.item % 2];
+    }
+    
     return cell;
 }
 
@@ -86,7 +92,7 @@ static const CGFloat kFMStatusBarHeight = 20.0;
 }
 
 - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return FMMosaicCellSizeBig;
+    return arc4random_uniform(2) == 0 ? FMMosaicCellSizeSmall : FMMosaicCellSizeBig;
 }
 
 @end
