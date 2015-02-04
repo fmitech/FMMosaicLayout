@@ -85,8 +85,19 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 }
 
 - (CGSize)collectionViewContentSize {
-#warning Implement me
-    return CGSizeMake(self.collectionView.bounds.size.width, 10000.0);
+    CGFloat width = [self collectionViewContentWidth];
+    __block CGFloat height = 0.0;
+    
+    [self.columnHeightsInSection enumerateObjectsUsingBlock:^(NSArray *columnHeights, NSUInteger sectionIndex, BOOL *stop) {
+        NSInteger indexOfTallestColumn = [self indexOfTallestColumnInSection:sectionIndex];
+        height += [columnHeights[indexOfTallestColumn] floatValue];
+    }];
+    
+    return CGSizeMake(width, height);
+}
+
+- (CGFloat)collectionViewContentWidth {
+    return self.collectionView.bounds.size.width;
 }
 
 #pragma mark - Accessors
@@ -174,7 +185,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 //}
 
 - (CGFloat)cellHeightForMosaicSize:(FMMosaicCellSize)mosaicCellSize section:(NSInteger)section {
-    CGFloat bigCellSize = self.collectionViewContentSize.width / [self numberOfColumnsInSection:section];
+    CGFloat bigCellSize = [self collectionViewContentWidth] / [self numberOfColumnsInSection:section];
     return mosaicCellSize == FMMosaicCellSizeBig ? bigCellSize : bigCellSize / 2.0;
 }
 
@@ -223,7 +234,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 }
 
 - (CGFloat)columnWidthInSection:(NSInteger)section {
-    return self.collectionViewContentSize.width / [self numberOfColumnsInSection:section];
+    return [self collectionViewContentWidth] / [self numberOfColumnsInSection:section];
 }
 
 - (FMMosaicCellSize)mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
