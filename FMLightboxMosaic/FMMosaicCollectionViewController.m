@@ -10,6 +10,8 @@
 #import "FMMosaicCollectionViewCell.h"
 #import "FMLightboxMosaicLayout.h"
 
+static const NSInteger kFMMosaicColumnCount = 2;
+
 @interface FMMosaicCollectionViewController () <FMMosaicLayoutDelegate>
 
 @property (nonatomic, strong) NSArray *stockImages;
@@ -40,7 +42,7 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return arc4random_uniform(11) + 10; // [10, 20]
+    return 11;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,11 +58,11 @@
 #pragma mark <FMMosaicLayoutDelegate>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout numberOfColumnsInSection:(NSInteger)section {
-    return 2;
+    return kFMMosaicColumnCount;
 }
 
 - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return arc4random_uniform(2) == 0 ? FMMosaicCellSizeSmall : FMMosaicCellSizeBig;
+    return (indexPath.item % 4 == 0) ? FMMosaicCellSizeBig : FMMosaicCellSizeSmall;
 }
 
 #pragma mark - Accessors
