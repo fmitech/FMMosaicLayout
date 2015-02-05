@@ -40,7 +40,6 @@ static const NSInteger kFMMosaicColumnCount = 2;
     return 7;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 11;
 }
@@ -70,7 +69,7 @@ static const NSInteger kFMMosaicColumnCount = 2;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout interitemSpacingForSectionAtIndex:(NSInteger)section {
-    return 1.0;
+    return 5.0;
 }
 
 #pragma mark - Accessors

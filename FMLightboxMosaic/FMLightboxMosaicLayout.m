@@ -27,7 +27,9 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 - (void)prepareLayout {
     for (NSInteger sectionIndex = 0; sectionIndex < [self.collectionView numberOfSections]; sectionIndex++) {
         
+        CGFloat interitemSpacing = [self interitemSpacingAtSection:sectionIndex];
         NSMutableArray *smallMosaicCellIndexPathsBuffer = [[NSMutableArray alloc] initWithCapacity:2];
+        
         for (NSInteger cellIndex = 0; cellIndex < [self.collectionView numberOfItemsInSection:sectionIndex]; cellIndex++) {
             NSIndexPath *cellIndexPath = [NSIndexPath indexPathForItem:cellIndex inSection:sectionIndex];
             
@@ -36,7 +38,8 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
             if (mosaicCellSize == FMMosaicCellSizeBig) {
                 UICollectionViewLayoutAttributes *layoutAttributes = [self addBigMosaicLayoutAttributesForIndexPath:cellIndexPath inColumn:indexOfShortestColumn];
-                self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] = @(layoutAttributes.frame.origin.y + layoutAttributes.frame.size.height);
+                CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] floatValue];
+                self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] = @(columnHeight + layoutAttributes.frame.size.height + interitemSpacing);
                 
             } else if(mosaicCellSize == FMMosaicCellSizeSmall) {
                 [smallMosaicCellIndexPathsBuffer addObject:cellIndexPath];
@@ -46,7 +49,8 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
                                                             inColumn:indexOfShortestColumn bufferIndex:0];
                     [self addSmallMosaicLayoutAttributesForIndexPath:smallMosaicCellIndexPathsBuffer[1] inColumn:indexOfShortestColumn bufferIndex:1];
                     
-                    self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] = @(layoutAttributes.frame.origin.y + layoutAttributes.frame.size.height);
+                    CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] floatValue];
+                    self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] = @(columnHeight + layoutAttributes.frame.size.height + interitemSpacing);
                     [smallMosaicCellIndexPathsBuffer removeAllObjects];
                 }
             }
@@ -57,16 +61,17 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
             NSInteger indexOfShortestColumn = [self indexOfShortestColumnInSection:sectionIndex];
             UICollectionViewLayoutAttributes *layoutAttributes = [self addSmallMosaicLayoutAttributesForIndexPath:smallMosaicCellIndexPathsBuffer[0]
                                                                                                          inColumn:indexOfShortestColumn bufferIndex:0];
-            self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] = @(layoutAttributes.frame.origin.y + layoutAttributes.frame.size.height);
+            CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] floatValue];
+            self.columnHeightsInSection[sectionIndex][indexOfShortestColumn] = @(columnHeight + layoutAttributes.frame.size.height + interitemSpacing);
             [smallMosaicCellIndexPathsBuffer removeAllObjects];
         }
         
-        // Add bottom section insets
+        // Add bottom section insets, and remove extra added inset
         UIEdgeInsets sectionInset = [self insetForSectionAtIndex:sectionIndex];
         NSArray *columnHeights = self.columnHeightsInSection[sectionIndex];
         for (NSInteger i = 0; i < columnHeights.count; i++) {
             CGFloat columnHeight = [columnHeights[i] floatValue];
-            self.columnHeightsInSection[sectionIndex][i] = @(columnHeight + sectionInset.bottom);
+            self.columnHeightsInSection[sectionIndex][i] = @(columnHeight + sectionInset.bottom - interitemSpacing);
         }
     }
 }
@@ -153,9 +158,8 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     // Factor in interitem spacing and insets
     UIEdgeInsets sectionInset = [self insetForSectionAtIndex:sectionIndex];
     CGFloat interitemSpacing = [self interitemSpacingAtSection:sectionIndex];
-    CGFloat combinedInteritemSpacing = ([self numberOfColumnsInSection:sectionIndex] - 1) * interitemSpacing;
     originX += sectionInset.left;
-    originX += combinedInteritemSpacing;
+    originX += column * interitemSpacing;
     originX += (cellWidth + interitemSpacing) * bufferIndex; // Account for first or second small mosaic cell
     
     layoutAttributes.frame = CGRectMake(originX, originY, cellWidth, cellHeight);
@@ -180,9 +184,8 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     // Factor in interitem spacing and insets
     UIEdgeInsets sectionInset = [self insetForSectionAtIndex:sectionIndex];
     CGFloat interitemSpacing = [self interitemSpacingAtSection:sectionIndex];
-    CGFloat combinedInteritemSpacing = ([self numberOfColumnsInSection:sectionIndex] - 1) * interitemSpacing;
     originX += sectionInset.left;
-    originX += combinedInteritemSpacing;
+    originX += column * interitemSpacing;
     
     layoutAttributes.frame = CGRectMake(originX, originY, cellWidth, cellHeight);
     [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
@@ -193,8 +196,9 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 #pragma mark Sizing Helpers
 
 - (CGFloat)cellHeightForMosaicSize:(FMMosaicCellSize)mosaicCellSize section:(NSInteger)section {
-    CGFloat bigCellSize = [self collectionViewContentWidth] / [self numberOfColumnsInSection:section];
-    return mosaicCellSize == FMMosaicCellSizeBig ? bigCellSize : bigCellSize / 2.0;
+    CGFloat bigCellSize = [self columnWidthInSection:section];
+    CGFloat interitemSpacing = [self interitemSpacingAtSection:section];
+    return mosaicCellSize == FMMosaicCellSizeBig ? bigCellSize : (bigCellSize - interitemSpacing) / 2.0;
 }
 
 - (CGFloat)verticalOffsetForSection:(NSInteger)section {
