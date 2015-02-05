@@ -65,7 +65,7 @@ static const NSInteger kFMMosaicColumnCount = 2;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsZero;
+    return UIEdgeInsetsMake(2.5, 2.5, 2.5, 2.5);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout interitemSpacingForSectionAtIndex:(NSInteger)section {
