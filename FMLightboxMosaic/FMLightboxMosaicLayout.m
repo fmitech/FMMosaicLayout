@@ -108,6 +108,26 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     return self.collectionView.bounds.size.width;
 }
 
+#pragma mark - Orientation
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    CGRect oldBounds = self.collectionView.bounds;
+    if (!CGSizeEqualToSize(oldBounds.size, newBounds.size)) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)invalidateLayoutWithContext:(UICollectionViewLayoutInvalidationContext *)context {
+//    [self.columnHeightsInSection removeAllObjects];
+//    _columnHeightsInSection = nil;
+//    
+//    [self.layoutAttributes removeAllObjects];
+//    _layoutAttributes = nil;
+//    
+//    [self prepareLayout];
+}
+
 #pragma mark - Accessors
 
 - (NSArray *)columnHeightsInSection {
