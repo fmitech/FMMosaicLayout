@@ -10,7 +10,7 @@
 #import "FMMosaicCollectionViewCell.h"
 #import "FMLightboxMosaicLayout.h"
 
-static const NSInteger kFMMosaicColumnCount = 2;
+static const NSInteger kFMMosaicColumnCount = 3;
 
 @interface FMMosaicCollectionViewController () <FMMosaicLayoutDelegate>
 
@@ -37,12 +37,11 @@ static const NSInteger kFMMosaicColumnCount = 2;
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 7;
+    return 1;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 11;
+    return 63;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,7 +61,15 @@ static const NSInteger kFMMosaicColumnCount = 2;
 }
 
 - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return (indexPath.item % 4 == 0) ? FMMosaicCellSizeBig : FMMosaicCellSizeSmall;
+    return (indexPath.item % 12 == 0) ? FMMosaicCellSizeBig : FMMosaicCellSizeSmall;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsZero;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout interitemSpacingForSectionAtIndex:(NSInteger)section {
+    return 2.0;
 }
 
 #pragma mark - Accessors
@@ -77,7 +84,16 @@ static const NSInteger kFMMosaicColumnCount = 2;
             [UIImage imageNamed:@"city"],
             [UIImage imageNamed:@"forest"],
             [UIImage imageNamed:@"houses"],
-            [UIImage imageNamed:@"mountains"]
+            [UIImage imageNamed:@"mountains"],
+            [UIImage imageNamed:@"ceiling"],
+            [UIImage imageNamed:@"chairs"],
+            [UIImage imageNamed:@"fjord"],
+            [UIImage imageNamed:@"fog"],
+            [UIImage imageNamed:@"game"],
+            [UIImage imageNamed:@"leaves"],
+            [UIImage imageNamed:@"stream"],
+            [UIImage imageNamed:@"stream2"],
+            [UIImage imageNamed:@"sunset"]
         ];
     }
     return _stockImages;
