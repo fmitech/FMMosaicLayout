@@ -80,19 +80,12 @@ static const NSInteger kFMMosaicColumnCount = 3;
             [UIImage imageNamed:@"balcony"],
             [UIImage imageNamed:@"birds"],
             [UIImage imageNamed:@"bridge"],
-            [UIImage imageNamed:@"bridge2"],
             [UIImage imageNamed:@"city"],
-            [UIImage imageNamed:@"forest"],
-            [UIImage imageNamed:@"houses"],
             [UIImage imageNamed:@"mountains"],
             [UIImage imageNamed:@"ceiling"],
-            [UIImage imageNamed:@"chairs"],
-            [UIImage imageNamed:@"fjord"],
-            [UIImage imageNamed:@"fog"],
             [UIImage imageNamed:@"game"],
             [UIImage imageNamed:@"leaves"],
             [UIImage imageNamed:@"stream"],
-            [UIImage imageNamed:@"stream2"],
             [UIImage imageNamed:@"sunset"]
         ];
     }
