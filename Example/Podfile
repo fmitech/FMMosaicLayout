@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'FMMosaicLayout', :exclusive => true do
+  pod "FMMosaicLayout", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "FMMosaicLayout", :path => "../"
+end

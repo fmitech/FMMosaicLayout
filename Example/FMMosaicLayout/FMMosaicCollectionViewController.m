@@ -10,7 +10,7 @@
 #import "FMMosaicCollectionViewCell.h"
 #import "FMMosaicLayout.h"
 
-static const NSInteger kFMMosaicColumnCount = 3;
+static const NSInteger kFMMosaicColumnCount = 2;
 
 @interface FMMosaicCollectionViewController () <FMMosaicLayoutDelegate>
 
@@ -41,7 +41,7 @@ static const NSInteger kFMMosaicColumnCount = 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 63;
+    return 62;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
