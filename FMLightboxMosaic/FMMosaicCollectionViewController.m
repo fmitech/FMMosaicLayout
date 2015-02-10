@@ -8,7 +8,7 @@
 
 #import "FMMosaicCollectionViewController.h"
 #import "FMMosaicCollectionViewCell.h"
-#import "FMLightboxMosaicLayout.h"
+#import "FMMosaicLayout.h"
 
 static const NSInteger kFMMosaicColumnCount = 3;
 
@@ -24,7 +24,7 @@ static const NSInteger kFMMosaicColumnCount = 3;
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor blackColor];
 
-    if([self.collectionViewLayout isKindOfClass:[FMLightboxMosaicLayout class]]) {
+    if([self.collectionViewLayout isKindOfClass:[FMMosaicLayout class]]) {
         [self.collectionViewLayout performSelector:@selector(setDelegate:) withObject:self];
     }
 }
@@ -56,19 +56,19 @@ static const NSInteger kFMMosaicColumnCount = 3;
 
 #pragma mark <FMMosaicLayoutDelegate>
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout numberOfColumnsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout numberOfColumnsInSection:(NSInteger)section {
     return kFMMosaicColumnCount;
 }
 
-- (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return (indexPath.item % 12 == 0) ? FMMosaicCellSizeBig : FMMosaicCellSizeSmall;
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMLightboxMosaicLayout *)collectionViewLayout interitemSpacingForSectionAtIndex:(NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout interitemSpacingForSectionAtIndex:(NSInteger)section {
     return 2.0;
 }
 
@@ -80,19 +80,12 @@ static const NSInteger kFMMosaicColumnCount = 3;
             [UIImage imageNamed:@"balcony"],
             [UIImage imageNamed:@"birds"],
             [UIImage imageNamed:@"bridge"],
-            [UIImage imageNamed:@"bridge2"],
             [UIImage imageNamed:@"city"],
-            [UIImage imageNamed:@"forest"],
-            [UIImage imageNamed:@"houses"],
             [UIImage imageNamed:@"mountains"],
             [UIImage imageNamed:@"ceiling"],
-            [UIImage imageNamed:@"chairs"],
-            [UIImage imageNamed:@"fjord"],
-            [UIImage imageNamed:@"fog"],
             [UIImage imageNamed:@"game"],
             [UIImage imageNamed:@"leaves"],
             [UIImage imageNamed:@"stream"],
-            [UIImage imageNamed:@"stream2"],
             [UIImage imageNamed:@"sunset"]
         ];
     }
