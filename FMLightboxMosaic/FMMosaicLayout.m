@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Fluid Media. All rights reserved.
 //
 
-#import "FMLightboxMosaicLayout.h"
+#import "FMMosaicLayout.h"
 #import <objc/message.h>
 
 static const NSInteger kFMDefaultNumberOfColumnsInSection = 2;
 static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
-@interface FMLightboxMosaicLayout ()
+@interface FMMosaicLayout ()
 
 /**
  *  A 2D array holding an array of columns heights for each section
@@ -22,7 +22,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
 @end
 
-@implementation FMLightboxMosaicLayout
+@implementation FMMosaicLayout
 
 - (void)prepareLayout {
     [super prepareLayout];

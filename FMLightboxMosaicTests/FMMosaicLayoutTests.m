@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface FMLightboxMosaicTests : XCTestCase
+@interface FMMosaicLayoutTests : XCTestCase
 
 @end
 
-@implementation FMLightboxMosaicTests
+@implementation FMMosaicLayoutTests
 
 - (void)setUp {
     [super setUp];

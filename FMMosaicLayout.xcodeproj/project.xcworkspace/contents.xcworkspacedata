@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FMLightboxMosaic.xcodeproj">
+      location = "self:FMMosaicLayout.xcodeproj">
    </FileRef>
 </Workspace>

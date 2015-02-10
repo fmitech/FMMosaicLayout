@@ -12,8 +12,8 @@
 		B9C0BC5D1A7BD5D6008D8C33 /* Example.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC5B1A7BD5D6008D8C33 /* Example.storyboard */; };
 		B9C0BC5F1A7BD5D6008D8C33 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC5E1A7BD5D6008D8C33 /* Images.xcassets */; };
 		B9C0BC621A7BD5D6008D8C33 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC601A7BD5D6008D8C33 /* LaunchScreen.xib */; };
-		B9C0BC6E1A7BD5D6008D8C33 /* FMLightboxMosaicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC6D1A7BD5D6008D8C33 /* FMLightboxMosaicTests.m */; };
-		B9C0BC791A7BDB91008D8C33 /* FMLightboxMosaicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC781A7BDB91008D8C33 /* FMLightboxMosaicLayout.m */; };
+		B9C0BC6E1A7BD5D6008D8C33 /* FMMosaicLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC6D1A7BD5D6008D8C33 /* FMMosaicLayoutTests.m */; };
+		B9C0BC791A7BDB91008D8C33 /* FMMosaicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC781A7BDB91008D8C33 /* FMMosaicLayout.m */; };
 		B9C0BC7F1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC7E1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m */; };
 		B9C0BC821A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC811A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B9C0BC4E1A7BD5D6008D8C33 /* FMLightboxMosaic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMLightboxMosaic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9C0BC4E1A7BD5D6008D8C33 /* FMMosaicLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMMosaicLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C0BC521A7BD5D6008D8C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9C0BC531A7BD5D6008D8C33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9C0BC551A7BD5D6008D8C33 /* FMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMAppDelegate.h; sourceTree = "<group>"; };
@@ -37,11 +37,11 @@
 		B9C0BC5C1A7BD5D6008D8C33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Example.storyboard; sourceTree = "<group>"; };
 		B9C0BC5E1A7BD5D6008D8C33 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B9C0BC611A7BD5D6008D8C33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B9C0BC671A7BD5D6008D8C33 /* FMLightboxMosaicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMLightboxMosaicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9C0BC671A7BD5D6008D8C33 /* FMMosaicLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMMosaicLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C0BC6C1A7BD5D6008D8C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B9C0BC6D1A7BD5D6008D8C33 /* FMLightboxMosaicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMLightboxMosaicTests.m; sourceTree = "<group>"; };
-		B9C0BC771A7BDB91008D8C33 /* FMLightboxMosaicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLightboxMosaicLayout.h; sourceTree = "<group>"; };
-		B9C0BC781A7BDB91008D8C33 /* FMLightboxMosaicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLightboxMosaicLayout.m; sourceTree = "<group>"; };
+		B9C0BC6D1A7BD5D6008D8C33 /* FMMosaicLayoutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMMosaicLayoutTests.m; sourceTree = "<group>"; };
+		B9C0BC771A7BDB91008D8C33 /* FMMosaicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMosaicLayout.h; sourceTree = "<group>"; };
+		B9C0BC781A7BDB91008D8C33 /* FMMosaicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMosaicLayout.m; sourceTree = "<group>"; };
 		B9C0BC7D1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMosaicCollectionViewController.h; sourceTree = "<group>"; };
 		B9C0BC7E1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCollectionViewController.m; sourceTree = "<group>"; };
 		B9C0BC801A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMosaicCollectionViewCell.h; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 		B9C0BC451A7BD5D6008D8C33 = {
 			isa = PBXGroup;
 			children = (
-				B9C0BC501A7BD5D6008D8C33 /* FMLightboxMosaic */,
-				B9C0BC6A1A7BD5D6008D8C33 /* FMLightboxMosaicTests */,
+				B9C0BC501A7BD5D6008D8C33 /* FMMosaic */,
+				B9C0BC6A1A7BD5D6008D8C33 /* FMMosaicLayoutTests */,
 				B9C0BC4F1A7BD5D6008D8C33 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,21 +78,21 @@
 		B9C0BC4F1A7BD5D6008D8C33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B9C0BC4E1A7BD5D6008D8C33 /* FMLightboxMosaic.app */,
-				B9C0BC671A7BD5D6008D8C33 /* FMLightboxMosaicTests.xctest */,
+				B9C0BC4E1A7BD5D6008D8C33 /* FMMosaicLayout.app */,
+				B9C0BC671A7BD5D6008D8C33 /* FMMosaicLayoutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B9C0BC501A7BD5D6008D8C33 /* FMLightboxMosaic */ = {
+		B9C0BC501A7BD5D6008D8C33 /* FMMosaic */ = {
 			isa = PBXGroup;
 			children = (
 				B9C0BC7D1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.h */,
 				B9C0BC7E1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m */,
 				B9C0BC801A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.h */,
 				B9C0BC811A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m */,
-				B9C0BC771A7BDB91008D8C33 /* FMLightboxMosaicLayout.h */,
-				B9C0BC781A7BDB91008D8C33 /* FMLightboxMosaicLayout.m */,
+				B9C0BC771A7BDB91008D8C33 /* FMMosaicLayout.h */,
+				B9C0BC781A7BDB91008D8C33 /* FMMosaicLayout.m */,
 				B9C0BC551A7BD5D6008D8C33 /* FMAppDelegate.h */,
 				B9C0BC561A7BD5D6008D8C33 /* FMAppDelegate.m */,
 				B9C0BC5B1A7BD5D6008D8C33 /* Example.storyboard */,
@@ -100,6 +100,7 @@
 				B9C0BC601A7BD5D6008D8C33 /* LaunchScreen.xib */,
 				B9C0BC511A7BD5D6008D8C33 /* Supporting Files */,
 			);
+			name = FMMosaic;
 			path = FMLightboxMosaic;
 			sourceTree = "<group>";
 		};
@@ -112,12 +113,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B9C0BC6A1A7BD5D6008D8C33 /* FMLightboxMosaicTests */ = {
+		B9C0BC6A1A7BD5D6008D8C33 /* FMMosaicLayoutTests */ = {
 			isa = PBXGroup;
 			children = (
-				B9C0BC6D1A7BD5D6008D8C33 /* FMLightboxMosaicTests.m */,
+				B9C0BC6D1A7BD5D6008D8C33 /* FMMosaicLayoutTests.m */,
 				B9C0BC6B1A7BD5D6008D8C33 /* Supporting Files */,
 			);
+			name = FMMosaicLayoutTests;
 			path = FMLightboxMosaicTests;
 			sourceTree = "<group>";
 		};
@@ -132,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B9C0BC4D1A7BD5D6008D8C33 /* FMLightboxMosaic */ = {
+		B9C0BC4D1A7BD5D6008D8C33 /* FMMosaicLayout */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B9C0BC711A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMLightboxMosaic" */;
+			buildConfigurationList = B9C0BC711A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMMosaicLayout" */;
 			buildPhases = (
 				B9C0BC4A1A7BD5D6008D8C33 /* Sources */,
 				B9C0BC4B1A7BD5D6008D8C33 /* Frameworks */,
@@ -144,14 +146,14 @@
 			);
 			dependencies = (
 			);
-			name = FMLightboxMosaic;
+			name = FMMosaicLayout;
 			productName = FMLightboxMosaic;
-			productReference = B9C0BC4E1A7BD5D6008D8C33 /* FMLightboxMosaic.app */;
+			productReference = B9C0BC4E1A7BD5D6008D8C33 /* FMMosaicLayout.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B9C0BC661A7BD5D6008D8C33 /* FMLightboxMosaicTests */ = {
+		B9C0BC661A7BD5D6008D8C33 /* FMMosaicLayoutTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B9C0BC741A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMLightboxMosaicTests" */;
+			buildConfigurationList = B9C0BC741A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMMosaicLayoutTests" */;
 			buildPhases = (
 				B9C0BC631A7BD5D6008D8C33 /* Sources */,
 				B9C0BC641A7BD5D6008D8C33 /* Frameworks */,
@@ -162,9 +164,9 @@
 			dependencies = (
 				B9C0BC691A7BD5D6008D8C33 /* PBXTargetDependency */,
 			);
-			name = FMLightboxMosaicTests;
+			name = FMMosaicLayoutTests;
 			productName = FMLightboxMosaicTests;
-			productReference = B9C0BC671A7BD5D6008D8C33 /* FMLightboxMosaicTests.xctest */;
+			productReference = B9C0BC671A7BD5D6008D8C33 /* FMMosaicLayoutTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -185,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B9C0BC491A7BD5D6008D8C33 /* Build configuration list for PBXProject "FMLightboxMosaic" */;
+			buildConfigurationList = B9C0BC491A7BD5D6008D8C33 /* Build configuration list for PBXProject "FMMosaicLayout" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -198,8 +200,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B9C0BC4D1A7BD5D6008D8C33 /* FMLightboxMosaic */,
-				B9C0BC661A7BD5D6008D8C33 /* FMLightboxMosaicTests */,
+				B9C0BC4D1A7BD5D6008D8C33 /* FMMosaicLayout */,
+				B9C0BC661A7BD5D6008D8C33 /* FMMosaicLayoutTests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,7 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9C0BC791A7BDB91008D8C33 /* FMLightboxMosaicLayout.m in Sources */,
+				B9C0BC791A7BDB91008D8C33 /* FMMosaicLayout.m in Sources */,
 				B9C0BC571A7BD5D6008D8C33 /* FMAppDelegate.m in Sources */,
 				B9C0BC821A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m in Sources */,
 				B9C0BC541A7BD5D6008D8C33 /* main.m in Sources */,
@@ -241,7 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9C0BC6E1A7BD5D6008D8C33 /* FMLightboxMosaicTests.m in Sources */,
+				B9C0BC6E1A7BD5D6008D8C33 /* FMMosaicLayoutTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +252,7 @@
 /* Begin PBXTargetDependency section */
 		B9C0BC691A7BD5D6008D8C33 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B9C0BC4D1A7BD5D6008D8C33 /* FMLightboxMosaic */;
+			target = B9C0BC4D1A7BD5D6008D8C33 /* FMMosaicLayout */;
 			targetProxy = B9C0BC681A7BD5D6008D8C33 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -359,7 +361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FMLightboxMosaic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FMMosaicLayout;
 			};
 			name = Debug;
 		};
@@ -369,7 +371,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FMLightboxMosaic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FMMosaicLayout;
 			};
 			name = Release;
 		};
@@ -387,7 +389,7 @@
 				);
 				INFOPLIST_FILE = FMLightboxMosaicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FMMosaicLayoutTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FMLightboxMosaic.app/FMLightboxMosaic";
 			};
 			name = Debug;
@@ -402,7 +404,7 @@
 				);
 				INFOPLIST_FILE = FMLightboxMosaicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FMMosaicLayoutTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FMLightboxMosaic.app/FMLightboxMosaic";
 			};
 			name = Release;
@@ -410,7 +412,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B9C0BC491A7BD5D6008D8C33 /* Build configuration list for PBXProject "FMLightboxMosaic" */ = {
+		B9C0BC491A7BD5D6008D8C33 /* Build configuration list for PBXProject "FMMosaicLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9C0BC6F1A7BD5D6008D8C33 /* Debug */,
@@ -419,7 +421,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B9C0BC711A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMLightboxMosaic" */ = {
+		B9C0BC711A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMMosaicLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9C0BC721A7BD5D6008D8C33 /* Debug */,
@@ -428,7 +430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B9C0BC741A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMLightboxMosaicTests" */ = {
+		B9C0BC741A7BD5D6008D8C33 /* Build configuration list for PBXNativeTarget "FMMosaicLayoutTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9C0BC751A7BD5D6008D8C33 /* Debug */,
