@@ -25,6 +25,10 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 @implementation FMLightboxMosaicLayout
 
 - (void)prepareLayout {
+    [super prepareLayout];
+    
+    [self resetLayoutState];
+    
     for (NSInteger sectionIndex = 0; sectionIndex < [self.collectionView numberOfSections]; sectionIndex++) {
         
         CGFloat interitemSpacing = [self interitemSpacingAtSection:sectionIndex];
@@ -113,19 +117,18 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
     CGRect oldBounds = self.collectionView.bounds;
     if (!CGSizeEqualToSize(oldBounds.size, newBounds.size)) {
+        [self prepareLayout];
         return YES;
     }
     return NO;
 }
 
-- (void)invalidateLayoutWithContext:(UICollectionViewLayoutInvalidationContext *)context {
-//    [self.columnHeightsInSection removeAllObjects];
-//    _columnHeightsInSection = nil;
-//    
-//    [self.layoutAttributes removeAllObjects];
-//    _layoutAttributes = nil;
-//    
-//    [self prepareLayout];
+- (void)resetLayoutState {
+    [self.columnHeightsInSection removeAllObjects];
+    _columnHeightsInSection = nil;
+    
+    [self.layoutAttributes removeAllObjects];
+    _layoutAttributes = nil;
 }
 
 #pragma mark - Accessors
