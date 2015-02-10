@@ -166,26 +166,17 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 #pragma mark Layout Attributes Helpers
 
 // Returns layout attributes after it has been calculated
-- (UICollectionViewLayoutAttributes *)addSmallMosaicLayoutAttributesForIndexPath:(NSIndexPath *)cellIndexPath inColumn:(NSInteger)column bufferIndex:(NSInteger)bufferIndex {
-#warning Refactor with addBigMosaicLayoutAttributesForIndexPath:inColumn
-    NSInteger sectionIndex = cellIndexPath.section;
-    
-    CGFloat cellHeight = [self cellHeightForMosaicSize:FMMosaicCellSizeSmall section:sectionIndex];
-    CGFloat cellWidth = cellHeight;
-    CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][column] floatValue];
-    
+- (UICollectionViewLayoutAttributes *)addSmallMosaicLayoutAttributesForIndexPath:(NSIndexPath *)cellIndexPath
+                                                                        inColumn:(NSInteger)column bufferIndex:(NSInteger)bufferIndex {
     UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:cellIndexPath];
-    CGFloat originX = column * [self columnWidthInSection:sectionIndex];
-    CGFloat originY = [self verticalOffsetForSection:sectionIndex] + columnHeight;
+    CGRect frame = [self frameForMosaicCellSize:FMMosaicCellSizeSmall atIndexPath:cellIndexPath inColumn:column];
+
+    // Account for first or second small mosaic cell
+    CGFloat interitemSpacing = [self interitemSpacingAtSection:cellIndexPath.section];
+    CGFloat cellWidth = [self cellHeightForMosaicSize:FMMosaicCellSizeSmall section:cellIndexPath.section];
+    frame.origin.x += (cellWidth + interitemSpacing) * bufferIndex;
+    layoutAttributes.frame = frame;
     
-    // Factor in interitem spacing and insets
-    UIEdgeInsets sectionInset = [self insetForSectionAtIndex:sectionIndex];
-    CGFloat interitemSpacing = [self interitemSpacingAtSection:sectionIndex];
-    originX += sectionInset.left;
-    originX += column * interitemSpacing;
-    originX += (cellWidth + interitemSpacing) * bufferIndex; // Account for first or second small mosaic cell
-    
-    layoutAttributes.frame = CGRectMake(originX, originY, cellWidth, cellHeight);
     [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
     
     return layoutAttributes;
@@ -193,14 +184,23 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 
 // Returns layout attributes after it has been calculated
 - (UICollectionViewLayoutAttributes *)addBigMosaicLayoutAttributesForIndexPath:(NSIndexPath *)cellIndexPath inColumn:(NSInteger)column {
-#warning Refactor with addSmallMosaicLayoutAttributesForIndexPath:inColumn:bufferIndex
+    UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:cellIndexPath];
+    CGRect frame = [self frameForMosaicCellSize:FMMosaicCellSizeBig atIndexPath:cellIndexPath inColumn:column];
+    layoutAttributes.frame = frame;
+    
+    [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
+    
+    return layoutAttributes;
+}
+
+- (CGRect)frameForMosaicCellSize:(FMMosaicCellSize)mosaicCellSize atIndexPath:(NSIndexPath *)cellIndexPath inColumn:(NSInteger)column {
     NSInteger sectionIndex = cellIndexPath.section;
     
-    CGFloat cellHeight = [self cellHeightForMosaicSize:FMMosaicCellSizeBig section:sectionIndex];
+    CGFloat cellHeight = [self cellHeightForMosaicSize:mosaicCellSize section:sectionIndex];
     CGFloat cellWidth = cellHeight;
     CGFloat columnHeight = [self.columnHeightsInSection[sectionIndex][column] floatValue];
     
-    UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:cellIndexPath];
+
     CGFloat originX = column * [self columnWidthInSection:sectionIndex];
     CGFloat originY = [self verticalOffsetForSection:sectionIndex] + columnHeight;
     
@@ -210,10 +210,7 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     originX += sectionInset.left;
     originX += column * interitemSpacing;
     
-    layoutAttributes.frame = CGRectMake(originX, originY, cellWidth, cellHeight);
-    [self.layoutAttributes setObject:layoutAttributes forKey:cellIndexPath];
-    
-    return layoutAttributes;
+    return CGRectMake(originX, originY, cellWidth, cellHeight);
 }
 
 #pragma mark Sizing Helpers
