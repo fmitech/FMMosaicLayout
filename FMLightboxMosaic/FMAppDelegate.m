@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Fluid Media. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "FMAppDelegate.h"
 
-@interface AppDelegate ()
+@interface FMAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation FMAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

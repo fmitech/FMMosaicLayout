@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B9C0BC541A7BD5D6008D8C33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC531A7BD5D6008D8C33 /* main.m */; };
-		B9C0BC571A7BD5D6008D8C33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC561A7BD5D6008D8C33 /* AppDelegate.m */; };
+		B9C0BC571A7BD5D6008D8C33 /* FMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0BC561A7BD5D6008D8C33 /* FMAppDelegate.m */; };
 		B9C0BC5D1A7BD5D6008D8C33 /* Example.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC5B1A7BD5D6008D8C33 /* Example.storyboard */; };
 		B9C0BC5F1A7BD5D6008D8C33 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC5E1A7BD5D6008D8C33 /* Images.xcassets */; };
 		B9C0BC621A7BD5D6008D8C33 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0BC601A7BD5D6008D8C33 /* LaunchScreen.xib */; };
@@ -32,8 +32,8 @@
 		B9C0BC4E1A7BD5D6008D8C33 /* FMLightboxMosaic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMLightboxMosaic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C0BC521A7BD5D6008D8C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9C0BC531A7BD5D6008D8C33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B9C0BC551A7BD5D6008D8C33 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B9C0BC561A7BD5D6008D8C33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B9C0BC551A7BD5D6008D8C33 /* FMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMAppDelegate.h; sourceTree = "<group>"; };
+		B9C0BC561A7BD5D6008D8C33 /* FMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMAppDelegate.m; sourceTree = "<group>"; };
 		B9C0BC5C1A7BD5D6008D8C33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Example.storyboard; sourceTree = "<group>"; };
 		B9C0BC5E1A7BD5D6008D8C33 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B9C0BC611A7BD5D6008D8C33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -93,8 +93,8 @@
 				B9C0BC811A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m */,
 				B9C0BC771A7BDB91008D8C33 /* FMLightboxMosaicLayout.h */,
 				B9C0BC781A7BDB91008D8C33 /* FMLightboxMosaicLayout.m */,
-				B9C0BC551A7BD5D6008D8C33 /* AppDelegate.h */,
-				B9C0BC561A7BD5D6008D8C33 /* AppDelegate.m */,
+				B9C0BC551A7BD5D6008D8C33 /* FMAppDelegate.h */,
+				B9C0BC561A7BD5D6008D8C33 /* FMAppDelegate.m */,
 				B9C0BC5B1A7BD5D6008D8C33 /* Example.storyboard */,
 				B9C0BC5E1A7BD5D6008D8C33 /* Images.xcassets */,
 				B9C0BC601A7BD5D6008D8C33 /* LaunchScreen.xib */,
@@ -230,7 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9C0BC791A7BDB91008D8C33 /* FMLightboxMosaicLayout.m in Sources */,
-				B9C0BC571A7BD5D6008D8C33 /* AppDelegate.m in Sources */,
+				B9C0BC571A7BD5D6008D8C33 /* FMAppDelegate.m in Sources */,
 				B9C0BC821A7BDCC1008D8C33 /* FMMosaicCollectionViewCell.m in Sources */,
 				B9C0BC541A7BD5D6008D8C33 /* main.m in Sources */,
 				B9C0BC7F1A7BDCA9008D8C33 /* FMMosaicCollectionViewController.m in Sources */,
