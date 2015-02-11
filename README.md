@@ -36,21 +36,21 @@ It's also possible to set the layout via Interface Builder. To see a complete ex
 
 In addition to the required protocol method `collectionView:layout:numberOfColumnsInSection:`, there are several optional methods you can implement from `FMMosaicLayoutDelegate`. You can see them in action in the example project.
 
-#### Mosaic Cell Size
+##### Mosaic Cell Size
 
     - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
             mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath;
     
 This allows you to specify when you want to place a large or small mosaic cell.
     
-#### Section Insets    
+##### Section Insets    
     
     - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
             insetForSectionAtIndex:(NSInteger)section;
             
 Here you can specify a custom `UIEdgeInsets` for each section.
 
-#### Interitem Spacing
+##### Interitem Spacing
     
     - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
             interitemSpacingForSectionAtIndex:(NSInteger)section;
