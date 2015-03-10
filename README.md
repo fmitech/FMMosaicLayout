@@ -16,7 +16,6 @@ FMMosaicLayout is very easy to use. Below is all you need to get going.
         ...
         
         FMMosaicLayout *mosaicLayout = [[FMMosaicLayout alloc] init];
-        mosaicLayout.delegate = self;
         self.collectionView.collectionViewLayout = mosaicLayout;
         
         ...
