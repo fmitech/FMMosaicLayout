@@ -28,6 +28,7 @@ typedef NS_ENUM(NSUInteger, FMMosaicCellSize) {
 
 @interface FMMosaicLayout : UICollectionViewLayout
 
+// Not used, just for backwards compatability
 @property (nonatomic, weak) id<FMMosaicLayoutDelegate> delegate;
 
 @end
