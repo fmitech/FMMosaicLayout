@@ -32,7 +32,7 @@ static const NSInteger kFMMosaicColumnCount = 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 62;
+    return 123;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -73,16 +73,24 @@ static const NSInteger kFMMosaicColumnCount = 2;
 - (NSArray *)stockImages {
     if (!_stockImages) {
         _stockImages = @[
+            [UIImage imageNamed:@"back"],
             [UIImage imageNamed:@"balcony"],
             [UIImage imageNamed:@"birds"],
             [UIImage imageNamed:@"bridge"],
-            [UIImage imageNamed:@"city"],
-            [UIImage imageNamed:@"mountains"],
             [UIImage imageNamed:@"ceiling"],
+            [UIImage imageNamed:@"city"],
+            [UIImage imageNamed:@"cityscape"],
             [UIImage imageNamed:@"game"],
             [UIImage imageNamed:@"leaves"],
+            [UIImage imageNamed:@"mountain-tops"],
+            [UIImage imageNamed:@"mountains"],
+            [UIImage imageNamed:@"sitting"],
+            [UIImage imageNamed:@"snowy-mountains"],
+            [UIImage imageNamed:@"stars"],
             [UIImage imageNamed:@"stream"],
-            [UIImage imageNamed:@"sunset"]
+            [UIImage imageNamed:@"sunset"],
+            [UIImage imageNamed:@"two-birds"],
+            [UIImage imageNamed:@"waves"]
         ];
     }
     return _stockImages;
