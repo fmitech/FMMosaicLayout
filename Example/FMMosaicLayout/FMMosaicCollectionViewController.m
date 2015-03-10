@@ -23,15 +23,6 @@ static const NSInteger kFMMosaicColumnCount = 2;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor blackColor];
-
-    if([self.collectionViewLayout isKindOfClass:[FMMosaicLayout class]]) {
-        [self.collectionViewLayout performSelector:@selector(setDelegate:) withObject:self];
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -45,7 +36,8 @@ static const NSInteger kFMMosaicColumnCount = 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    FMMosaicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FMMosaicCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
+    FMMosaicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:
+        [FMMosaicCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
     
     // Configure the cell
     cell.titleLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.item];
@@ -56,19 +48,23 @@ static const NSInteger kFMMosaicColumnCount = 2;
 
 #pragma mark <FMMosaicLayoutDelegate>
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout numberOfColumnsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+        numberOfColumnsInSection:(NSInteger)section {
     return kFMMosaicColumnCount;
 }
 
-- (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+        mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return (indexPath.item % 12 == 0) ? FMMosaicCellSizeBig : FMMosaicCellSizeSmall;
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+        insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout interitemSpacingForSectionAtIndex:(NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+        interitemSpacingForSectionAtIndex:(NSInteger)section {
     return 2.0;
 }
 

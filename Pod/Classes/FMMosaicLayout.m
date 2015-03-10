@@ -290,7 +290,6 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     if ([self.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
         inset = [self.delegate collectionView:self.collectionView layout:self insetForSectionAtIndex:section];
     }
-    
     return inset;
 }
 
@@ -299,8 +298,11 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
     if ([self.delegate respondsToSelector:@selector(collectionView:layout:interitemSpacingForSectionAtIndex:)]) {
         interitemSpacing = [self.delegate collectionView:self.collectionView layout:self interitemSpacingForSectionAtIndex:section];
     }
-    
     return interitemSpacing;
+}
+
+- (id<FMMosaicLayoutDelegate>)delegate {
+    return _delegate ? _delegate : (id)self.collectionView.delegate;
 }
 
 @end
