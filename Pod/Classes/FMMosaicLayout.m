@@ -47,8 +47,9 @@ static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
                 
             } else if(mosaicCellSize == FMMosaicCellSizeSmall) {
                 [smallMosaicCellIndexPathsBuffer addObject:cellIndexPath];
+                
+                // Buffer full, add small cells to column heights array and layout attributes.
                 if(smallMosaicCellIndexPathsBuffer.count >= 2) {
-                    // We only need one small mosaic cell layout attribute because they have the same origin.y and size.height
                     UICollectionViewLayoutAttributes *layoutAttributes = [self addSmallMosaicLayoutAttributesForIndexPath:smallMosaicCellIndexPathsBuffer[0]
                                                             inColumn:indexOfShortestColumn bufferIndex:0];
                     [self addSmallMosaicLayoutAttributesForIndexPath:smallMosaicCellIndexPathsBuffer[1] inColumn:indexOfShortestColumn bufferIndex:1];
