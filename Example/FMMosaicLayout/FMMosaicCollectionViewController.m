@@ -26,6 +26,8 @@
 #import "FMMosaicCollectionViewController.h"
 #import "FMMosaicCellView.h"
 #import "FMMosaicLayout.h"
+#import "FMHeaderView.h"
+#import "FMFooterView.h"
 
 static const CGFloat kFMHeaderFooterHeight  = 44.0;
 static const NSInteger kFMMosaicColumnCount = 2;
@@ -43,6 +45,11 @@ static NSString* const kFMFooterReuseIdentifier = @"FMFooterReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor blackColor];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FMHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                 withReuseIdentifier:[FMHeaderView reuseIdentifier]];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FMFooterViewUI" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                 withReuseIdentifier:[FMFooterView reuseIdentifier]];
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -64,6 +71,21 @@ static NSString* const kFMFooterReuseIdentifier = @"FMFooterReuseIdentifier";
     cell.imageView.image = self.stockImages[indexPath.item % self.stockImages.count];
     
     return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionReusableView *reusableView = nil;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                               withReuseIdentifier:kFMHeaderReuseIdentifier forIndexPath:indexPath];
+        
+    } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                               withReuseIdentifier:kFMFooterReuseIdentifier forIndexPath:indexPath];
+    }
+    return reusableView;
 }
 
 #pragma mark <FMMosaicLayoutDelegate>
@@ -96,21 +118,6 @@ static NSString* const kFMFooterReuseIdentifier = @"FMFooterReuseIdentifier";
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
    heightForFooterInSection:(NSInteger)section {
     return kFMHeaderFooterHeight;
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
-           viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    
-    UICollectionReusableView *reusableView = nil;
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
-                withReuseIdentifier:kFMHeaderReuseIdentifier forIndexPath:indexPath];
-        
-    } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
-                withReuseIdentifier:kFMFooterReuseIdentifier forIndexPath:indexPath];
-    }
-    return reusableView;
 }
 
 #pragma mark - Accessors
