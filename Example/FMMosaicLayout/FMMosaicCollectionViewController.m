@@ -89,12 +89,12 @@ static NSString* const kFMFooterReuseIdentifier = @"FMFooterReuseIdentifier";
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
-   sizeForHeaderInSection:(NSInteger)section {
+   heightForHeaderInSection:(NSInteger)section {
     return kFMHeaderFooterHeight;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
-   sizeForFooterInSection:(NSInteger)section {
+   heightForFooterInSection:(NSInteger)section {
     return kFMHeaderFooterHeight;
 }
 
