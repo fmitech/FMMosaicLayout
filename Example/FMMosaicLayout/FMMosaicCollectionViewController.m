@@ -24,10 +24,13 @@
 // THE SOFTWARE.
 
 #import "FMMosaicCollectionViewController.h"
-#import "FMMosaicCollectionViewCell.h"
+#import "FMMosaicCellView.h"
 #import "FMMosaicLayout.h"
 
+static const CGFloat kFMHeaderFooterHeight  = 44.0;
 static const NSInteger kFMMosaicColumnCount = 2;
+static NSString* const kFMHeaderReuseIdentifier = @"FMHeaderReuseIdentifier";
+static NSString* const kFMFooterReuseIdentifier = @"FMFooterReuseIdentifier";
 
 @interface FMMosaicCollectionViewController () <FMMosaicLayoutDelegate>
 
@@ -53,8 +56,8 @@ static const NSInteger kFMMosaicColumnCount = 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    FMMosaicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:
-        [FMMosaicCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
+    FMMosaicCellView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:
+        [FMMosaicCellView reuseIdentifier] forIndexPath:indexPath];
     
     // Configure the cell
     cell.titleLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.item];
@@ -83,6 +86,31 @@ static const NSInteger kFMMosaicColumnCount = 2;
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
         interitemSpacingForSectionAtIndex:(NSInteger)section {
     return 2.0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
+   sizeForHeaderInSection:(NSInteger)section {
+    return kFMHeaderFooterHeight;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
+   sizeForFooterInSection:(NSInteger)section {
+    return kFMHeaderFooterHeight;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionReusableView *reusableView = nil;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
+                withReuseIdentifier:kFMHeaderReuseIdentifier forIndexPath:indexPath];
+        
+    } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
+                withReuseIdentifier:kFMFooterReuseIdentifier forIndexPath:indexPath];
+    }
+    return reusableView;
 }
 
 #pragma mark - Accessors
