@@ -24,4 +24,5 @@
 // THE SOFTWARE.
 
 @interface FMMosaicCollectionViewController : UICollectionViewController
+
 @end

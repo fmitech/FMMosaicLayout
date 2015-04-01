@@ -160,14 +160,14 @@
 		6003F593195388D20070C39A /* FMMosaicLayout */ = {
 			isa = PBXGroup;
 			children = (
+				B952EA181ACC386B00A979A6 /* Cells */,
 				B952EA191ACC3AE500A979A6 /* FMBlurView.h */,
 				B952EA1A1ACC3AE500A979A6 /* FMBlurView.m */,
-				B952EA181ACC386B00A979A6 /* Cells */,
+				B986BA361A8A65AD00E4584D /* FMMosaicCollectionViewController.h */,
+				B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */,
 				B986BA211A8A5F6000E4584D /* main.m */,
 				6003F59C195388D20070C39A /* FMAppDelegate.h */,
 				B986BA1E1A8A5F6000E4584D /* FMAppDelegate.m */,
-				B986BA361A8A65AD00E4584D /* FMMosaicCollectionViewController.h */,
-				B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */,
 				B986BA261A8A5F7D00E4584D /* Example.storyboard */,
 				B986BA281A8A5F7D00E4584D /* LaunchScreen.xib */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
