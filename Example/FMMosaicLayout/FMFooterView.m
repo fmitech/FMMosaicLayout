@@ -24,7 +24,6 @@
 // THE SOFTWARE.
 
 #import "FMFooterView.h"
-#import "FMBlurView.h"
 
 static NSString* const kFMFooterViewReuseIdentifier = @"FMFooterViewReuseIdentifier";
 

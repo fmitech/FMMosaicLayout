@@ -23,7 +23,6 @@
 		B952EA121ACC380700A979A6 /* FMFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B952EA101ACC380700A979A6 /* FMFooterView.xib */; };
 		B952EA161ACC382600A979A6 /* FMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B952EA141ACC382600A979A6 /* FMHeaderView.m */; };
 		B952EA171ACC382600A979A6 /* FMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B952EA151ACC382600A979A6 /* FMHeaderView.xib */; };
-		B952EA1B1ACC3AE500A979A6 /* FMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B952EA1A1ACC3AE500A979A6 /* FMBlurView.m */; };
 		B986BA221A8A5F6000E4584D /* FMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA1E1A8A5F6000E4584D /* FMAppDelegate.m */; };
 		B986BA231A8A5F6000E4584D /* FMMosaicCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA1F1A8A5F6000E4584D /* FMMosaicCellView.m */; };
 		B986BA241A8A5F6000E4584D /* FMMosaicCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */; };
@@ -73,8 +72,6 @@
 		B952EA131ACC382600A979A6 /* FMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHeaderView.h; sourceTree = "<group>"; };
 		B952EA141ACC382600A979A6 /* FMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHeaderView.m; sourceTree = "<group>"; };
 		B952EA151ACC382600A979A6 /* FMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMHeaderView.xib; sourceTree = "<group>"; };
-		B952EA191ACC3AE500A979A6 /* FMBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMBlurView.h; sourceTree = "<group>"; };
-		B952EA1A1ACC3AE500A979A6 /* FMBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMBlurView.m; sourceTree = "<group>"; };
 		B986BA1E1A8A5F6000E4584D /* FMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMAppDelegate.m; sourceTree = "<group>"; };
 		B986BA1F1A8A5F6000E4584D /* FMMosaicCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCellView.m; sourceTree = "<group>"; };
 		B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCollectionViewController.m; sourceTree = "<group>"; };
@@ -161,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				B952EA181ACC386B00A979A6 /* Cells */,
-				B952EA191ACC3AE500A979A6 /* FMBlurView.h */,
-				B952EA1A1ACC3AE500A979A6 /* FMBlurView.m */,
 				B986BA361A8A65AD00E4584D /* FMMosaicCollectionViewController.h */,
 				B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */,
 				B986BA211A8A5F6000E4584D /* main.m */,
@@ -399,7 +394,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B952EA1B1ACC3AE500A979A6 /* FMBlurView.m in Sources */,
 				B986BA221A8A5F6000E4584D /* FMAppDelegate.m in Sources */,
 				B952EA111ACC380700A979A6 /* FMFooterView.m in Sources */,
 				B986BA231A8A5F6000E4584D /* FMMosaicCellView.m in Sources */,
