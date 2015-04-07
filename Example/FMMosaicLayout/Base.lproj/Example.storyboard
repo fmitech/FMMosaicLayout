@@ -9,7 +9,7 @@
         <scene sceneID="NU4-65-4YE">
             <objects>
                 <collectionViewController id="o6f-MP-tph" customClass="FMMosaicCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="Jxo-Rb-3EO">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" id="Jxo-Rb-3EO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="iSq-Xx-5AB" customClass="FMMosaicLayout"/>

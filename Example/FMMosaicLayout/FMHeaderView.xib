@@ -27,12 +27,12 @@
             </subviews>
             <constraints>
                 <constraint firstItem="J3l-tV-flF" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="3U7-42-hFJ"/>
+                <constraint firstAttribute="centerY" secondItem="CoE-Hy-5TK" secondAttribute="centerY" constant="0.5" id="5cq-Dx-EIj"/>
                 <constraint firstAttribute="bottom" secondItem="J3l-tV-flF" secondAttribute="bottom" id="Kja-uB-75H"/>
                 <constraint firstItem="CoE-Hy-5TK" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="Tsj-UD-A7Q"/>
                 <constraint firstAttribute="trailing" secondItem="CoE-Hy-5TK" secondAttribute="trailing" constant="8" id="Vf5-hM-4Gk"/>
                 <constraint firstAttribute="trailing" secondItem="J3l-tV-flF" secondAttribute="trailing" id="m70-3v-9JR"/>
                 <constraint firstItem="J3l-tV-flF" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="mC0-1z-SsK"/>
-                <constraint firstItem="CoE-Hy-5TK" firstAttribute="centerY" secondItem="J3l-tV-flF" secondAttribute="centerY" constant="-0.5" id="uLy-2b-6uM"/>
             </constraints>
             <connections>
                 <outlet property="titleLabel" destination="CoE-Hy-5TK" id="Kwy-oU-kEe"/>

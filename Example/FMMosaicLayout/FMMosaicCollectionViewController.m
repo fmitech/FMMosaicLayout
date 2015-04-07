@@ -44,13 +44,17 @@ static const NSInteger kFMMosaicColumnCount = 2;
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor blackColor];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FMHeaderView" bundle:nil]
+    NSString *headerNibName = [UIVisualEffectView class] ? @"FMHeaderViewBlur" : @"FMHeaderView";
+    [self.collectionView registerNib:[UINib nibWithNibName:headerNibName bundle:nil]
           forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                  withReuseIdentifier:[FMHeaderView reuseIdentifier]];
-    
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FMFooterView" bundle:nil]
+
+    NSString *footerNibName = [UIVisualEffectView class] ? @"FMFooterViewBlur" : @"FMFooterView";
+    [self.collectionView registerNib:[UINib nibWithNibName:footerNibName bundle:nil]
           forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                  withReuseIdentifier:[FMFooterView reuseIdentifier]];
+    
+    [self adjustContentInsets];
 }
 
 - (void)adjustContentInsets {

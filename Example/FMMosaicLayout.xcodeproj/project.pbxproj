@@ -23,6 +23,8 @@
 		B952EA121ACC380700A979A6 /* FMFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B952EA101ACC380700A979A6 /* FMFooterView.xib */; };
 		B952EA161ACC382600A979A6 /* FMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B952EA141ACC382600A979A6 /* FMHeaderView.m */; };
 		B952EA171ACC382600A979A6 /* FMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B952EA151ACC382600A979A6 /* FMHeaderView.xib */; };
+		B96097921AD4342D00EBD79A /* FMFooterViewBlur.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96097901AD4342D00EBD79A /* FMFooterViewBlur.xib */; };
+		B96097931AD4342D00EBD79A /* FMHeaderViewBlur.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96097911AD4342D00EBD79A /* FMHeaderViewBlur.xib */; };
 		B986BA221A8A5F6000E4584D /* FMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA1E1A8A5F6000E4584D /* FMAppDelegate.m */; };
 		B986BA231A8A5F6000E4584D /* FMMosaicCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA1F1A8A5F6000E4584D /* FMMosaicCellView.m */; };
 		B986BA241A8A5F6000E4584D /* FMMosaicCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */; };
@@ -72,6 +74,8 @@
 		B952EA131ACC382600A979A6 /* FMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHeaderView.h; sourceTree = "<group>"; };
 		B952EA141ACC382600A979A6 /* FMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHeaderView.m; sourceTree = "<group>"; };
 		B952EA151ACC382600A979A6 /* FMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMHeaderView.xib; sourceTree = "<group>"; };
+		B96097901AD4342D00EBD79A /* FMFooterViewBlur.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMFooterViewBlur.xib; sourceTree = "<group>"; };
+		B96097911AD4342D00EBD79A /* FMHeaderViewBlur.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMHeaderViewBlur.xib; sourceTree = "<group>"; };
 		B986BA1E1A8A5F6000E4584D /* FMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMAppDelegate.m; sourceTree = "<group>"; };
 		B986BA1F1A8A5F6000E4584D /* FMMosaicCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCellView.m; sourceTree = "<group>"; };
 		B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCollectionViewController.m; sourceTree = "<group>"; };
@@ -216,14 +220,32 @@
 			children = (
 				B986BA351A8A65AD00E4584D /* FMMosaicCellView.h */,
 				B986BA1F1A8A5F6000E4584D /* FMMosaicCellView.m */,
-				B952EA131ACC382600A979A6 /* FMHeaderView.h */,
-				B952EA141ACC382600A979A6 /* FMHeaderView.m */,
-				B952EA151ACC382600A979A6 /* FMHeaderView.xib */,
+				B960978F1AD433FE00EBD79A /* Header */,
+				B960978E1AD433F600EBD79A /* Footer */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		B960978E1AD433F600EBD79A /* Footer */ = {
+			isa = PBXGroup;
+			children = (
 				B952EA0E1ACC380700A979A6 /* FMFooterView.h */,
 				B952EA0F1ACC380700A979A6 /* FMFooterView.m */,
 				B952EA101ACC380700A979A6 /* FMFooterView.xib */,
+				B96097901AD4342D00EBD79A /* FMFooterViewBlur.xib */,
 			);
-			name = Cells;
+			name = Footer;
+			sourceTree = "<group>";
+		};
+		B960978F1AD433FE00EBD79A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				B952EA131ACC382600A979A6 /* FMHeaderView.h */,
+				B952EA141ACC382600A979A6 /* FMHeaderView.m */,
+				B952EA151ACC382600A979A6 /* FMHeaderView.xib */,
+				B96097911AD4342D00EBD79A /* FMHeaderViewBlur.xib */,
+			);
+			name = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,7 +334,9 @@
 				B952EA121ACC380700A979A6 /* FMFooterView.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				B952EA171ACC382600A979A6 /* FMHeaderView.xib in Resources */,
+				B96097921AD4342D00EBD79A /* FMFooterViewBlur.xib in Resources */,
 				B986BA2A1A8A5F7D00E4584D /* Example.storyboard in Resources */,
+				B96097931AD4342D00EBD79A /* FMHeaderViewBlur.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +562,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FMMosaicLayout/FMMosaicLayout-Prefix.pch";
 				INFOPLIST_FILE = "FMMosaicLayout/FMMosaicLayout-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -553,7 +577,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FMMosaicLayout/FMMosaicLayout-Prefix.pch";
 				INFOPLIST_FILE = "FMMosaicLayout/FMMosaicLayout-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
