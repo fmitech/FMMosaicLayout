@@ -11,19 +11,30 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vt-wp-aJr" userLabel="Blur View" customClass="FMBlurView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vt-wp-aJr" userLabel="Blur View" customClass="FMBlurView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Assets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Q-Te-oSd">
-                    <rect key="frame" x="12" y="21" width="66" height="21"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 ASSETS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Q-Te-oSd">
+                    <rect key="frame" x="8" y="21" width="304" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="83g-Ka-0Up"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Q5Q-Te-oSd" secondAttribute="trailing" constant="8" id="Bii-Iw-Gxl"/>
+                <constraint firstItem="3Vt-wp-aJr" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="MtV-Vx-Ifq"/>
+                <constraint firstItem="3Vt-wp-aJr" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="Ojq-H5-Iki"/>
+                <constraint firstAttribute="trailing" secondItem="3Vt-wp-aJr" secondAttribute="trailing" id="QDv-MN-YnG"/>
+                <constraint firstItem="Q5Q-Te-oSd" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="WHY-O8-u0a"/>
+                <constraint firstAttribute="bottom" secondItem="Q5Q-Te-oSd" secondAttribute="bottom" constant="8" id="nHv-sZ-Kun"/>
+                <constraint firstAttribute="bottom" secondItem="3Vt-wp-aJr" secondAttribute="bottom" id="qeO-6y-aeK"/>
+            </constraints>
             <connections>
-                <outlet property="blurView" destination="3Vt-wp-aJr" id="bq2-NQ-4P8"/>
                 <outlet property="titleLabel" destination="Q5Q-Te-oSd" id="JxE-Sy-jrs"/>
             </connections>
             <point key="canvasLocation" x="310" y="444"/>

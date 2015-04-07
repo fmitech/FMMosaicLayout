@@ -51,22 +51,27 @@ static const NSInteger kFMMosaicColumnCount = 2;
                  withReuseIdentifier:[FMFooterView reuseIdentifier]];
 }
 
+- (void)adjustContentInsets {
+    UIEdgeInsets insets = UIEdgeInsetsMake([UIApplication sharedApplication].statusBarFrame.size.height, 0, 0, 0);
+    self.collectionView.contentInset = insets;
+    self.collectionView.scrollIndicatorInsets = insets;
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 123;
+    return 31;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    FMMosaicCellView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:
-        [FMMosaicCellView reuseIdentifier] forIndexPath:indexPath];
+    FMMosaicCellView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FMMosaicCellView reuseIdentifier] forIndexPath:indexPath];
     
     // Configure the cell
-    cell.titleLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.item];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%ld", indexPath.item + 1];
     cell.imageView.image = self.stockImages[indexPath.item % self.stockImages.count];
     
     return cell;
@@ -77,12 +82,15 @@ static const NSInteger kFMMosaicColumnCount = 2;
     
     UICollectionReusableView *reusableView = nil;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                               withReuseIdentifier:[FMHeaderView reuseIdentifier] forIndexPath:indexPath];
+        FMHeaderView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[FMHeaderView reuseIdentifier] forIndexPath:indexPath];
+        headerView.titleLabel.text = [NSString stringWithFormat:@"SECTION %ld", indexPath.section + 1];
+        reusableView = headerView;
         
     } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                               withReuseIdentifier:[FMFooterView reuseIdentifier] forIndexPath:indexPath];
+        FMFooterView *footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[FMFooterView reuseIdentifier] forIndexPath:indexPath];
+        NSInteger assetCount = [self collectionView:self.collectionView numberOfItemsInSection:indexPath.section];
+        footerView.titleLabel.text = assetCount == 1 ? @"1 ASSET" : [NSString stringWithFormat:@"%ld ASSETS", assetCount];
+        reusableView = footerView;
     }
     return reusableView;
 }

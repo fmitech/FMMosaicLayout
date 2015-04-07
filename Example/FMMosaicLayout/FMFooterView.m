@@ -28,20 +28,10 @@
 
 static NSString* const kFMFooterViewReuseIdentifier = @"FMFooterViewReuseIdentifier";
 
-@interface FMFooterView ()
-
-@property (weak, nonatomic) IBOutlet FMBlurView *blurView;
-
-@end
-
 @implementation FMFooterView
 
 + (NSString *)reuseIdentifier {
     return kFMFooterViewReuseIdentifier;
-}
-
-- (void)awakeFromNib {
-    [self.blurView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 }
 
 @end
