@@ -42,7 +42,6 @@ static NSString* const kFMMosaicCellViewReuseIdentifier = @"FMMosaicCellViewReus
 - (void)awakeFromNib {
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
     longPressGesture.minimumPressDuration = 0.0;
-    longPressGesture.allowableMovement = self.frame.size.width / 2.0; // Approximation
     longPressGesture.delegate = self;
     longPressGesture.cancelsTouchesInView = NO;
     [self addGestureRecognizer:longPressGesture];
