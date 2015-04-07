@@ -70,6 +70,10 @@ static const NSInteger kFMMosaicColumnCount = 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    switch (section) {
+        case 0: return 66;
+        case 1: return 123;
+    }
     return 31;
 }
 
@@ -120,7 +124,7 @@ static const NSInteger kFMMosaicColumnCount = 2;
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(1.0, 0.0, 1.0, 0.0);
+    return UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout

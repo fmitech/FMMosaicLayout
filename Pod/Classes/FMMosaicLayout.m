@@ -27,7 +27,7 @@
 
 static const NSInteger kFMDefaultNumberOfColumnsInSection = 2;
 static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
-static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
+static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 0.0;
 static const BOOL kFMDefaultHeaderShouldOverlayContent = NO;
 static const BOOL kFMDefaultFooterShouldOverlayContent = NO;
 
@@ -59,6 +59,11 @@ static const BOOL kFMDefaultFooterShouldOverlayContent = NO;
     
     // Calculate layout attritbutes in each section
     for (NSInteger sectionIndex = 0; sectionIndex < [self.collectionView numberOfSections]; sectionIndex++) {
+
+        CGFloat interitemSpacing = [self interitemSpacingAtSection:sectionIndex];
+        
+        // Add top section insets
+        [self growColumnHeightsBy:[self insetForSectionAtIndex:sectionIndex].top section:sectionIndex];
         
         // Adds header view
         UICollectionViewLayoutAttributes *headerLayoutAttribute =
@@ -66,19 +71,10 @@ static const BOOL kFMDefaultFooterShouldOverlayContent = NO;
                                                       indexPath:[NSIndexPath indexPathForItem:0 inSection:sectionIndex]];
         
         if (![self headerShouldOverlayContent]) {
-            [self growColumnHeightsBy:headerLayoutAttribute.frame.size.height section:sectionIndex];
-        }
-        
-        // Add top section insets
-        UIEdgeInsets sectionInset = [self insetForSectionAtIndex:sectionIndex];
-        NSArray *columnHeights = self.columnHeightsPerSection[sectionIndex];
-        for (NSInteger i = 0; i < columnHeights.count; i++) {
-            CGFloat columnHeight = [columnHeights[i] floatValue];
-            self.columnHeightsPerSection[sectionIndex][i] = @(columnHeight + sectionInset.top);
+            [self growColumnHeightsBy:headerLayoutAttribute.frame.size.height + interitemSpacing section:sectionIndex];
         }
         
         // Calculate cell attributes in each section
-        CGFloat interitemSpacing = [self interitemSpacingAtSection:sectionIndex];
         NSMutableArray *smallMosaicCellIndexPathsBuffer = [[NSMutableArray alloc] initWithCapacity:2];
         for (NSInteger cellIndex = 0; cellIndex < [self.collectionView numberOfItemsInSection:sectionIndex]; cellIndex++) {
             
@@ -121,21 +117,17 @@ static const BOOL kFMDefaultFooterShouldOverlayContent = NO;
             [smallMosaicCellIndexPathsBuffer removeAllObjects];
         }
         
-        // Add bottom section insets, and remove extra added inset
-        columnHeights = self.columnHeightsPerSection[sectionIndex];
-        for (NSInteger i = 0; i < columnHeights.count; i++) {
-            CGFloat columnHeight = [columnHeights[i] floatValue];
-            self.columnHeightsPerSection[sectionIndex][i] = @(columnHeight + sectionInset.bottom - interitemSpacing);
-        }
-        
         // Adds footer view
         UICollectionViewLayoutAttributes *footerLayoutAttribute =
         [self addLayoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                                                   indexPath:[NSIndexPath indexPathForItem:1 inSection:sectionIndex]];
-        
+
         if (![self footerShouldOverlayContent]) {
             [self growColumnHeightsBy:footerLayoutAttribute.frame.size.height section:sectionIndex];
         }
+        
+        // Add bottom section insets, and remove extra added inset
+        [self growColumnHeightsBy:[self insetForSectionAtIndex:sectionIndex].bottom section:sectionIndex];
     }
 }
 
@@ -299,30 +291,28 @@ static const BOOL kFMDefaultFooterShouldOverlayContent = NO;
 - (UICollectionViewLayoutAttributes *)addLayoutAttributesForSupplementaryViewOfKind:(NSString *)kind indexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
     
-    CGFloat originX = 0.0;
+    UIEdgeInsets sectionInset = [self insetForSectionAtIndex:indexPath.section];
+    CGFloat originX = sectionInset.left;
     CGFloat originY = [self verticalOffsetForSection:indexPath.section];
-    CGFloat width   = [self collectionViewContentWidth];
+    CGFloat width   = [self collectionViewContentWidth] - sectionInset.left - sectionInset.right;
     CGFloat height  = 0.0;
     
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         height = [self heightForHeaderAtSection:indexPath.section];
         
-        layoutAttributes.frame = CGRectMake(originX, originY, width, height);
-        
     } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
         height = [self heightForFooterAtSection:indexPath.section];
-
-        NSInteger tallestColumnIndex = [self indexOfTallestColumnInSection:indexPath.section];
-        CGFloat sectionColumnHeight  = [self.columnHeightsPerSection[indexPath.section][tallestColumnIndex] floatValue];
-        
         if ([self footerShouldOverlayContent]) {
             originY -= height;
         }
-        
-        layoutAttributes.frame = CGRectMake(originX, sectionColumnHeight + originY, width, height);
     }
     
+    NSInteger tallestColumnIndex = [self indexOfTallestColumnInSection:indexPath.section];
+    CGFloat sectionColumnHeight  = [self.columnHeightsPerSection[indexPath.section][tallestColumnIndex] floatValue];
+    
+    layoutAttributes.frame = CGRectMake(originX, sectionColumnHeight + originY, width, height);
     layoutAttributes.zIndex = 1;
+    
     [self.supplementaryLayoutAttributes setObject:layoutAttributes forKey:indexPath];
     
     return layoutAttributes;
