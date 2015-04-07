@@ -28,6 +28,8 @@
 static const NSInteger kFMDefaultNumberOfColumnsInSection = 2;
 static const FMMosaicCellSize kFMDefaultCellSize = FMMosaicCellSizeSmall;
 static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
+static const BOOL kFMDefaultHeaderShouldOverlayContent = NO;
+static const BOOL kFMDefaultFooterShouldOverlayContent = NO;
 
 @interface FMMosaicLayout ()
 
@@ -62,7 +64,10 @@ static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
         UICollectionViewLayoutAttributes *headerLayoutAttribute =
             [self addLayoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                       indexPath:[NSIndexPath indexPathForItem:0 inSection:sectionIndex]];
-        [self growColumnHeightsBy:headerLayoutAttribute.frame.size.height section:sectionIndex];
+        
+        if (![self headerShouldOverlayContent]) {
+            [self growColumnHeightsBy:headerLayoutAttribute.frame.size.height section:sectionIndex];
+        }
         
         // Add top section insets
         UIEdgeInsets sectionInset = [self insetForSectionAtIndex:sectionIndex];
@@ -127,7 +132,10 @@ static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
         UICollectionViewLayoutAttributes *footerLayoutAttribute =
         [self addLayoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                                                   indexPath:[NSIndexPath indexPathForItem:1 inSection:sectionIndex]];
-        [self growColumnHeightsBy:footerLayoutAttribute.frame.size.height section:sectionIndex];
+        
+        if (![self footerShouldOverlayContent]) {
+            [self growColumnHeightsBy:footerLayoutAttribute.frame.size.height section:sectionIndex];
+        }
     }
 }
 
@@ -307,9 +315,14 @@ static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
         NSInteger tallestColumnIndex = [self indexOfTallestColumnInSection:indexPath.section];
         CGFloat sectionColumnHeight  = [self.columnHeightsPerSection[indexPath.section][tallestColumnIndex] floatValue];
         
+        if ([self footerShouldOverlayContent]) {
+            originY -= height;
+        }
+        
         layoutAttributes.frame = CGRectMake(originX, sectionColumnHeight + originY, width, height);
     }
     
+    layoutAttributes.zIndex = 1;
     [self.supplementaryLayoutAttributes setObject:layoutAttributes forKey:indexPath];
     
     return layoutAttributes;
@@ -428,6 +441,22 @@ static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
         height = [self.delegate collectionView:self.collectionView layout:self heightForFooterInSection:section];
     }
     return height;
+}
+
+- (BOOL)headerShouldOverlayContent {
+    CGFloat shouldOverlay = kFMDefaultHeaderShouldOverlayContent;
+    if ([self.delegate respondsToSelector:@selector(headerShouldOverlayContentInCollectionView:layout:)]) {
+        shouldOverlay = [self.delegate headerShouldOverlayContentInCollectionView:self.collectionView layout:self];
+    }
+    return shouldOverlay;
+}
+
+- (BOOL)footerShouldOverlayContent {
+    CGFloat shouldOverlay = kFMDefaultFooterShouldOverlayContent;
+    if ([self.delegate respondsToSelector:@selector(footerShouldOverlayContentInCollectionView:layout:)]) {
+        shouldOverlay = [self.delegate footerShouldOverlayContentInCollectionView:self.collectionView layout:self];
+    }
+    return shouldOverlay;
 }
 
 // If layout delegate hasn't been provided, resort to collection view's delegate which is likely a UICollectionViewController

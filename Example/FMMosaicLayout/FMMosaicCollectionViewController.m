@@ -44,10 +44,12 @@ static const NSInteger kFMMosaicColumnCount = 2;
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor blackColor];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FMHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FMHeaderView" bundle:nil]
+          forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                  withReuseIdentifier:[FMHeaderView reuseIdentifier]];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FMFooterView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FMFooterView" bundle:nil]
+          forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                  withReuseIdentifier:[FMFooterView reuseIdentifier]];
 }
 
@@ -82,16 +84,21 @@ static const NSInteger kFMMosaicColumnCount = 2;
     
     UICollectionReusableView *reusableView = nil;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        FMHeaderView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[FMHeaderView reuseIdentifier] forIndexPath:indexPath];
+        FMHeaderView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
+                              withReuseIdentifier:[FMHeaderView reuseIdentifier] forIndexPath:indexPath];
+        
         headerView.titleLabel.text = [NSString stringWithFormat:@"SECTION %ld", indexPath.section + 1];
         reusableView = headerView;
         
     } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        FMFooterView *footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[FMFooterView reuseIdentifier] forIndexPath:indexPath];
+        FMFooterView *footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
+                               withReuseIdentifier:[FMFooterView reuseIdentifier] forIndexPath:indexPath];
+        
         NSInteger assetCount = [self collectionView:self.collectionView numberOfItemsInSection:indexPath.section];
         footerView.titleLabel.text = assetCount == 1 ? @"1 ASSET" : [NSString stringWithFormat:@"%ld ASSETS", assetCount];
         reusableView = footerView;
     }
+    
     return reusableView;
 }
 
@@ -125,6 +132,14 @@ static const NSInteger kFMMosaicColumnCount = 2;
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
    heightForFooterInSection:(NSInteger)section {
     return kFMHeaderFooterHeight;
+}
+
+- (BOOL)headerShouldOverlayContentInCollectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout {
+    return YES;
+}
+
+- (BOOL)footerShouldOverlayContentInCollectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout {
+    return YES;
 }
 
 #pragma mark - Accessors
