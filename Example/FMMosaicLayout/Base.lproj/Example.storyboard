@@ -34,25 +34,34 @@
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpZ-cB-jf1" userLabel="Overlay View">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="8K1-mT-4Zs" firstAttribute="top" secondItem="XWI-Tg-CQX" secondAttribute="top" id="BLP-1k-sSM"/>
                                     <constraint firstAttribute="bottom" secondItem="8K1-mT-4Zs" secondAttribute="bottom" id="Csr-yc-RBO"/>
+                                    <constraint firstItem="dpZ-cB-jf1" firstAttribute="leading" secondItem="XWI-Tg-CQX" secondAttribute="leading" id="E07-FL-6p6"/>
                                     <constraint firstAttribute="bottom" secondItem="4Ug-ZP-hR4" secondAttribute="bottom" constant="8" id="MjX-6I-qvm"/>
                                     <constraint firstItem="8K1-mT-4Zs" firstAttribute="leading" secondItem="XWI-Tg-CQX" secondAttribute="leading" id="R5r-I3-7cw"/>
                                     <constraint firstItem="4Ug-ZP-hR4" firstAttribute="leading" secondItem="XWI-Tg-CQX" secondAttribute="leading" constant="8" id="TTD-EC-WEz"/>
                                     <constraint firstItem="8K1-mT-4Zs" firstAttribute="leading" secondItem="XWI-Tg-CQX" secondAttribute="leading" id="XyJ-U5-nSY"/>
                                     <constraint firstAttribute="trailing" secondItem="8K1-mT-4Zs" secondAttribute="trailing" id="ZIM-Fy-LT5"/>
                                     <constraint firstItem="8K1-mT-4Zs" firstAttribute="top" secondItem="XWI-Tg-CQX" secondAttribute="top" id="bEW-ZN-L1F"/>
+                                    <constraint firstItem="dpZ-cB-jf1" firstAttribute="top" secondItem="XWI-Tg-CQX" secondAttribute="top" id="ceX-EE-2jw"/>
+                                    <constraint firstAttribute="trailing" secondItem="dpZ-cB-jf1" secondAttribute="trailing" id="iBc-sx-8Gi"/>
                                     <constraint firstAttribute="trailing" secondItem="4Ug-ZP-hR4" secondAttribute="trailing" constant="8" id="iDx-KX-MmO"/>
                                     <constraint firstAttribute="bottom" secondItem="8K1-mT-4Zs" secondAttribute="bottom" id="lTr-Di-x1s"/>
+                                    <constraint firstAttribute="bottom" secondItem="dpZ-cB-jf1" secondAttribute="bottom" id="p0n-rg-2z1"/>
                                     <constraint firstAttribute="trailing" secondItem="8K1-mT-4Zs" secondAttribute="trailing" id="wnV-6k-Sej"/>
                                 </constraints>
                                 <size key="customSize" width="100" height="100"/>
                                 <connections>
                                     <outlet property="imageView" destination="8K1-mT-4Zs" id="4mt-FM-cpe"/>
+                                    <outlet property="overlayView" destination="dpZ-cB-jf1" id="giA-Te-sUw"/>
                                     <outlet property="titleLabel" destination="4Ug-ZP-hR4" id="blJ-vU-zl7"/>
                                 </connections>
                             </collectionViewCell>
