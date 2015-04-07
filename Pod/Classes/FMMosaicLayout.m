@@ -126,7 +126,7 @@ static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
         // Adds footer view
         UICollectionViewLayoutAttributes *footerLayoutAttribute =
         [self addLayoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                  indexPath:[NSIndexPath indexPathForItem:0 inSection:sectionIndex]];
+                                                  indexPath:[NSIndexPath indexPathForItem:1 inSection:sectionIndex]];
         [self growColumnHeightsBy:footerLayoutAttribute.frame.size.height section:sectionIndex];
     }
 }
@@ -293,15 +293,21 @@ static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
     
     CGFloat originX = 0.0;
     CGFloat originY = [self verticalOffsetForSection:indexPath.section];
-    CGFloat width = [self collectionViewContentWidth];
-    CGFloat height = [self heightForHeaderAtSection:indexPath.section];
+    CGFloat width   = [self collectionViewContentWidth];
+    CGFloat height  = 0.0;
     
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        height = [self heightForHeaderAtSection:indexPath.section];
+        
         layoutAttributes.frame = CGRectMake(originX, originY, width, height);
+        
     } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        height = [self heightForFooterAtSection:indexPath.section];
+
         NSInteger tallestColumnIndex = [self indexOfTallestColumnInSection:indexPath.section];
-        CGFloat columnHeight = [self.columnHeightsPerSection[indexPath.section][tallestColumnIndex] floatValue];
-        layoutAttributes.frame = CGRectMake(originX, originY + columnHeight, width, height);
+        CGFloat sectionColumnHeight  = [self.columnHeightsPerSection[indexPath.section][tallestColumnIndex] floatValue];
+        
+        layoutAttributes.frame = CGRectMake(originX, sectionColumnHeight + originY, width, height);
     }
     
     [self.supplementaryLayoutAttributes setObject:layoutAttributes forKey:indexPath];
@@ -343,7 +349,7 @@ static const FMMosaicCellSize kFMDefaultHeaderFooterHeight = 44.0;
 - (void)growColumnHeightsBy:(CGFloat)increase section:(NSInteger)section {
     NSMutableArray *columnHeights = [self.columnHeightsPerSection objectAtIndex:section];
     
-    for (int i = 1; i < columnHeights.count; i++) {
+    for (int i = 0; i < columnHeights.count; i++) {
         columnHeights[i] = @([columnHeights[i] floatValue] + increase);
     }
 }

@@ -18,13 +18,15 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Assets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Q-Te-oSd">
                     <rect key="frame" x="12" y="21" width="66" height="21"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <connections>
+                <outlet property="blurView" destination="3Vt-wp-aJr" id="bq2-NQ-4P8"/>
                 <outlet property="titleLabel" destination="Q5Q-Te-oSd" id="JxE-Sy-jrs"/>
             </connections>
+            <point key="canvasLocation" x="310" y="444"/>
         </collectionReusableView>
     </objects>
 </document>

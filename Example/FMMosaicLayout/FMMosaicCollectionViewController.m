@@ -31,8 +31,6 @@
 
 static const CGFloat kFMHeaderFooterHeight  = 44.0;
 static const NSInteger kFMMosaicColumnCount = 2;
-static NSString* const kFMHeaderReuseIdentifier = @"FMHeaderReuseIdentifier";
-static NSString* const kFMFooterReuseIdentifier = @"FMFooterReuseIdentifier";
 
 @interface FMMosaicCollectionViewController () <FMMosaicLayoutDelegate>
 
@@ -48,7 +46,8 @@ static NSString* const kFMFooterReuseIdentifier = @"FMFooterReuseIdentifier";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"FMHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                  withReuseIdentifier:[FMHeaderView reuseIdentifier]];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FMFooterViewUI" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FMFooterView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                  withReuseIdentifier:[FMFooterView reuseIdentifier]];
 }
 
@@ -79,11 +78,11 @@ static NSString* const kFMFooterReuseIdentifier = @"FMFooterReuseIdentifier";
     UICollectionReusableView *reusableView = nil;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                               withReuseIdentifier:kFMHeaderReuseIdentifier forIndexPath:indexPath];
+                                                               withReuseIdentifier:[FMHeaderView reuseIdentifier] forIndexPath:indexPath];
         
     } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
         reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                               withReuseIdentifier:kFMFooterReuseIdentifier forIndexPath:indexPath];
+                                                               withReuseIdentifier:[FMFooterView reuseIdentifier] forIndexPath:indexPath];
     }
     return reusableView;
 }
