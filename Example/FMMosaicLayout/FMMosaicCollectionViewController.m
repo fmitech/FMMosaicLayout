@@ -79,7 +79,7 @@ static const NSInteger kFMMosaicColumnCount = 2;
     FMMosaicCellView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FMMosaicCellView reuseIdentifier] forIndexPath:indexPath];
     
     // Configure the cell
-    cell.titleLabel.text = [NSString stringWithFormat:@"%ld", indexPath.item + 1];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.item + 1];
     cell.imageView.image = self.stockImages[indexPath.item % self.stockImages.count];
     
     return cell;
@@ -93,7 +93,7 @@ static const NSInteger kFMMosaicColumnCount = 2;
         FMHeaderView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
                               withReuseIdentifier:[FMHeaderView reuseIdentifier] forIndexPath:indexPath];
         
-        headerView.titleLabel.text = [NSString stringWithFormat:@"SECTION %ld", indexPath.section + 1];
+        headerView.titleLabel.text = [NSString stringWithFormat:@"SECTION %ld", (long)indexPath.section + 1];
         reusableView = headerView;
         
     } else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
