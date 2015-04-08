@@ -1,5 +1,3 @@
-dsd# FMMosaicLayout
-
 [![CI Status](http://img.shields.io/travis/JVillella/FMMosaicLayout.svg?style=flat)](https://travis-ci.org/JVillella/FMMosaicLayout)
 [![Version](https://img.shields.io/cocoapods/v/FMMosaicLayout.svg?style=flat)](http://cocoadocs.org/docsets/FMMosaicLayout)
 [![License](https://img.shields.io/cocoapods/l/FMMosaicLayout.svg?style=flat)](http://cocoadocs.org/docsets/FMMosaicLayout)
