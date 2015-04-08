@@ -25,8 +25,8 @@ FMMosaicLayout is very easy to use. Below is all you need to get going.
     
     #pragma mark <FMMosaicLayoutDelegate>
     
-    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
-        interitemSpacingForSectionAtIndex:(NSInteger)section {
+    - (NSInteger)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+        numberOfColumnsInSection:(NSInteger)section {
         
         return 2; // Or any number of your choosing.
     }

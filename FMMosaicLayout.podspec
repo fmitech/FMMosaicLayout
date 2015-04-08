@@ -5,6 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/fmitech/FMMosaicLayout"
   s.screenshots      = ["http://fmitech.github.io/FMMosaicLayout/Screenshots/portrait-1.png",
                         "http://fmitech.github.io/FMMosaicLayout/Screenshots/portrait-2.png",
+                        "http://fmitech.github.io/FMMosaicLayout/Screenshots/portrait-3.png",
                         "http://fmitech.github.io/FMMosaicLayout/Screenshots/landscape.png"]
   s.license          = 'MIT'
   s.author           = { "JVillella" => "julian.villella@hotmail.com" }
