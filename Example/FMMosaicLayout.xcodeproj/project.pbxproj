@@ -19,8 +19,12 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		B952EA111ACC380700A979A6 /* FMFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B952EA0F1ACC380700A979A6 /* FMFooterView.m */; };
+		B952EA161ACC382600A979A6 /* FMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B952EA141ACC382600A979A6 /* FMHeaderView.m */; };
+		B96097921AD4342D00EBD79A /* FMFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96097901AD4342D00EBD79A /* FMFooterView.xib */; };
+		B96097931AD4342D00EBD79A /* FMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96097911AD4342D00EBD79A /* FMHeaderView.xib */; };
 		B986BA221A8A5F6000E4584D /* FMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA1E1A8A5F6000E4584D /* FMAppDelegate.m */; };
-		B986BA231A8A5F6000E4584D /* FMMosaicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA1F1A8A5F6000E4584D /* FMMosaicCollectionViewCell.m */; };
+		B986BA231A8A5F6000E4584D /* FMMosaicCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA1F1A8A5F6000E4584D /* FMMosaicCellView.m */; };
 		B986BA241A8A5F6000E4584D /* FMMosaicCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */; };
 		B986BA251A8A5F6000E4584D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B986BA211A8A5F6000E4584D /* main.m */; };
 		B986BA2A1A8A5F7D00E4584D /* Example.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B986BA261A8A5F7D00E4584D /* Example.storyboard */; };
@@ -62,13 +66,19 @@
 		7605C3CD52D024CD64BFE751 /* Pods-FMMosaicLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMMosaicLayout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FMMosaicLayout/Pods-FMMosaicLayout.debug.xcconfig"; sourceTree = "<group>"; };
 		7CBBF3E3E5CC0B3DEF0EB910 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AF23CF08D3EBDE40465A3363 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B952EA0E1ACC380700A979A6 /* FMFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMFooterView.h; sourceTree = "<group>"; };
+		B952EA0F1ACC380700A979A6 /* FMFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMFooterView.m; sourceTree = "<group>"; };
+		B952EA131ACC382600A979A6 /* FMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHeaderView.h; sourceTree = "<group>"; };
+		B952EA141ACC382600A979A6 /* FMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHeaderView.m; sourceTree = "<group>"; };
+		B96097901AD4342D00EBD79A /* FMFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMFooterView.xib; sourceTree = "<group>"; };
+		B96097911AD4342D00EBD79A /* FMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMHeaderView.xib; sourceTree = "<group>"; };
 		B986BA1E1A8A5F6000E4584D /* FMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMAppDelegate.m; sourceTree = "<group>"; };
-		B986BA1F1A8A5F6000E4584D /* FMMosaicCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCollectionViewCell.m; sourceTree = "<group>"; };
+		B986BA1F1A8A5F6000E4584D /* FMMosaicCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCellView.m; sourceTree = "<group>"; };
 		B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMMosaicCollectionViewController.m; sourceTree = "<group>"; };
 		B986BA211A8A5F6000E4584D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B986BA271A8A5F7D00E4584D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Example.storyboard; sourceTree = "<group>"; };
 		B986BA291A8A5F7D00E4584D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B986BA351A8A65AD00E4584D /* FMMosaicCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMMosaicCollectionViewCell.h; sourceTree = "<group>"; };
+		B986BA351A8A65AD00E4584D /* FMMosaicCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMMosaicCellView.h; sourceTree = "<group>"; };
 		B986BA361A8A65AD00E4584D /* FMMosaicCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMMosaicCollectionViewController.h; sourceTree = "<group>"; };
 		E88784FB63092BC5C3699361 /* libPods-FMMosaicLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FMMosaicLayout.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,13 +157,12 @@
 		6003F593195388D20070C39A /* FMMosaicLayout */ = {
 			isa = PBXGroup;
 			children = (
+				B952EA181ACC386B00A979A6 /* Cells */,
+				B986BA361A8A65AD00E4584D /* FMMosaicCollectionViewController.h */,
+				B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */,
 				B986BA211A8A5F6000E4584D /* main.m */,
 				6003F59C195388D20070C39A /* FMAppDelegate.h */,
 				B986BA1E1A8A5F6000E4584D /* FMAppDelegate.m */,
-				B986BA351A8A65AD00E4584D /* FMMosaicCollectionViewCell.h */,
-				B986BA1F1A8A5F6000E4584D /* FMMosaicCollectionViewCell.m */,
-				B986BA361A8A65AD00E4584D /* FMMosaicCollectionViewController.h */,
-				B986BA201A8A5F6000E4584D /* FMMosaicCollectionViewController.m */,
 				B986BA261A8A5F7D00E4584D /* Example.storyboard */,
 				B986BA281A8A5F7D00E4584D /* LaunchScreen.xib */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -200,6 +209,37 @@
 				7CBBF3E3E5CC0B3DEF0EB910 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		B952EA181ACC386B00A979A6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B986BA351A8A65AD00E4584D /* FMMosaicCellView.h */,
+				B986BA1F1A8A5F6000E4584D /* FMMosaicCellView.m */,
+				B960978F1AD433FE00EBD79A /* Header */,
+				B960978E1AD433F600EBD79A /* Footer */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		B960978E1AD433F600EBD79A /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				B952EA0E1ACC380700A979A6 /* FMFooterView.h */,
+				B952EA0F1ACC380700A979A6 /* FMFooterView.m */,
+				B96097901AD4342D00EBD79A /* FMFooterView.xib */,
+			);
+			name = Footer;
+			sourceTree = "<group>";
+		};
+		B960978F1AD433FE00EBD79A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				B952EA131ACC382600A979A6 /* FMHeaderView.h */,
+				B952EA141ACC382600A979A6 /* FMHeaderView.m */,
+				B96097911AD4342D00EBD79A /* FMHeaderView.xib */,
+			);
+			name = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +326,9 @@
 				B986BA2B1A8A5F7D00E4584D /* LaunchScreen.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				B96097921AD4342D00EBD79A /* FMFooterView.xib in Resources */,
 				B986BA2A1A8A5F7D00E4584D /* Example.storyboard in Resources */,
+				B96097931AD4342D00EBD79A /* FMHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,8 +411,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B986BA221A8A5F6000E4584D /* FMAppDelegate.m in Sources */,
-				B986BA231A8A5F6000E4584D /* FMMosaicCollectionViewCell.m in Sources */,
+				B952EA111ACC380700A979A6 /* FMFooterView.m in Sources */,
+				B986BA231A8A5F6000E4584D /* FMMosaicCellView.m in Sources */,
 				B986BA241A8A5F6000E4584D /* FMMosaicCollectionViewController.m in Sources */,
+				B952EA161ACC382600A979A6 /* FMHeaderView.m in Sources */,
 				B986BA251A8A5F6000E4584D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,7 +554,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FMMosaicLayout/FMMosaicLayout-Prefix.pch";
 				INFOPLIST_FILE = "FMMosaicLayout/FMMosaicLayout-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -525,7 +569,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FMMosaicLayout/FMMosaicLayout-Prefix.pch";
 				INFOPLIST_FILE = "FMMosaicLayout/FMMosaicLayout-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -1,5 +1,5 @@
 //
-// FMMosaicCollectionViewController.h
+// FMMosaicCellView.h
 // FMMosaicLayout
 //
 // Created by Julian Villella on 2015-01-30.
@@ -23,6 +23,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@interface FMMosaicCollectionViewController : UICollectionViewController
+@interface FMMosaicCellView : UICollectionViewCell
+
++ (NSString *)reuseIdentifier;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

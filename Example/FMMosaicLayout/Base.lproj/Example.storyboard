@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o6f-MP-tph">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o6f-MP-tph">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Mosaic Collection View Controller-->
         <scene sceneID="NU4-65-4YE">
             <objects>
                 <collectionViewController id="o6f-MP-tph" customClass="FMMosaicCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="Jxo-Rb-3EO">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" id="Jxo-Rb-3EO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="iSq-Xx-5AB" customClass="FMMosaicLayout"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FMMosaicCollectionViewCellReuseIdentifier" id="XWI-Tg-CQX" customClass="FMMosaicCollectionViewCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FMMosaicCellViewReuseIdentifier" id="XWI-Tg-CQX" customClass="FMMosaicCellView">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -34,25 +34,34 @@
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpZ-cB-jf1" userLabel="Overlay View">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="8K1-mT-4Zs" firstAttribute="top" secondItem="XWI-Tg-CQX" secondAttribute="top" id="BLP-1k-sSM"/>
                                     <constraint firstAttribute="bottom" secondItem="8K1-mT-4Zs" secondAttribute="bottom" id="Csr-yc-RBO"/>
+                                    <constraint firstItem="dpZ-cB-jf1" firstAttribute="leading" secondItem="XWI-Tg-CQX" secondAttribute="leading" id="E07-FL-6p6"/>
                                     <constraint firstAttribute="bottom" secondItem="4Ug-ZP-hR4" secondAttribute="bottom" constant="8" id="MjX-6I-qvm"/>
                                     <constraint firstItem="8K1-mT-4Zs" firstAttribute="leading" secondItem="XWI-Tg-CQX" secondAttribute="leading" id="R5r-I3-7cw"/>
                                     <constraint firstItem="4Ug-ZP-hR4" firstAttribute="leading" secondItem="XWI-Tg-CQX" secondAttribute="leading" constant="8" id="TTD-EC-WEz"/>
                                     <constraint firstItem="8K1-mT-4Zs" firstAttribute="leading" secondItem="XWI-Tg-CQX" secondAttribute="leading" id="XyJ-U5-nSY"/>
                                     <constraint firstAttribute="trailing" secondItem="8K1-mT-4Zs" secondAttribute="trailing" id="ZIM-Fy-LT5"/>
                                     <constraint firstItem="8K1-mT-4Zs" firstAttribute="top" secondItem="XWI-Tg-CQX" secondAttribute="top" id="bEW-ZN-L1F"/>
+                                    <constraint firstItem="dpZ-cB-jf1" firstAttribute="top" secondItem="XWI-Tg-CQX" secondAttribute="top" id="ceX-EE-2jw"/>
+                                    <constraint firstAttribute="trailing" secondItem="dpZ-cB-jf1" secondAttribute="trailing" id="iBc-sx-8Gi"/>
                                     <constraint firstAttribute="trailing" secondItem="4Ug-ZP-hR4" secondAttribute="trailing" constant="8" id="iDx-KX-MmO"/>
                                     <constraint firstAttribute="bottom" secondItem="8K1-mT-4Zs" secondAttribute="bottom" id="lTr-Di-x1s"/>
+                                    <constraint firstAttribute="bottom" secondItem="dpZ-cB-jf1" secondAttribute="bottom" id="p0n-rg-2z1"/>
                                     <constraint firstAttribute="trailing" secondItem="8K1-mT-4Zs" secondAttribute="trailing" id="wnV-6k-Sej"/>
                                 </constraints>
                                 <size key="customSize" width="100" height="100"/>
                                 <connections>
                                     <outlet property="imageView" destination="8K1-mT-4Zs" id="4mt-FM-cpe"/>
+                                    <outlet property="overlayView" destination="dpZ-cB-jf1" id="giA-Te-sUw"/>
                                     <outlet property="titleLabel" destination="4Ug-ZP-hR4" id="blJ-vU-zl7"/>
                                 </connections>
                             </collectionViewCell>

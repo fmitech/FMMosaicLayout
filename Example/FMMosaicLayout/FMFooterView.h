@@ -1,9 +1,9 @@
 //
-// FMMosaicCollectionViewCell.h
+// FMFooterView.h
 // FMMosaicLayout
 //
-// Created by Julian Villella on 2015-01-30.
-// Copyright (c) 2015 Fluid Media. All rights reserved.
+// Created by Julian Villella on 2015-04-01.
+// Copyright (c) 2015 JVillella. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +23,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@interface FMMosaicCollectionViewCell : UICollectionViewCell
+@interface FMFooterView : UICollectionReusableView
 
 + (NSString *)reuseIdentifier;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

@@ -1,9 +1,9 @@
 //
-// FMMosaicCollectionViewController.h
+// FMFooterView.m
 // FMMosaicLayout
 //
-// Created by Julian Villella on 2015-01-30.
-// Copyright (c) 2015 Fluid Media. All rights reserved.
+// Created by Julian Villella on 2015-04-01.
+// Copyright (c) 2015 JVillella. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@interface FMMosaicCollectionViewController : UICollectionViewController
+#import "FMFooterView.h"
+
+static NSString* const kFMFooterViewReuseIdentifier = @"FMFooterViewReuseIdentifier";
+
+@implementation FMFooterView
+
++ (NSString *)reuseIdentifier {
+    return kFMFooterViewReuseIdentifier;
+}
 
 @end
