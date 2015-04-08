@@ -8,7 +8,7 @@ dsd# FMMosaicLayout
 FMMosaicLayout is a mosiac collection view layout. There are a great number of media-based iOS applications that use `UICollectionViewFlowLayout` without any modifications. This lends itself to boring presentation, and unengaging interaction. FMMosaicLayout is a step in the right direction. Simply add this pod to your project, set your preferences and it will layout out your collection view cells in pretty mosaics. The algorithm behind this got its inspiration from this [blog post](http://blog.vjeux.com/2012/image/image-layout-algorithm-facebook.html).
 
 ![Animated GIF](https://fmitech.github.io/FMMosaicLayout/Screenshots/fmmosaiclayout.gif)
-![Portrait Screenshot](http://fmitech.github.io/FMMosaicLayout/Screenshots/portrait-3.png)
+![Portrait Screenshot](http://fmitech.github.io/FMMosaicLayout/Screenshots/portrait-3-small.png)
 
 ## Usage
 
