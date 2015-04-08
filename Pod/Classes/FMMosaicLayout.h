@@ -41,10 +41,14 @@ typedef NS_ENUM(NSUInteger, FMMosaicCellSize) {
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout interitemSpacingForSectionAtIndex:(NSInteger)section;
 
 // Header/Footer
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout heightForHeaderInSection:(NSInteger)section;
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section;
-- (BOOL)headerShouldOverlayContentInCollectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout;
-- (BOOL)footerShouldOverlayContentInCollectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout;
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+ heightForHeaderInSection:(NSInteger)section;
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+ heightForFooterInSection:(NSInteger)section;
+- (BOOL)headerShouldOverlayContentInCollectionView:(UICollectionView *)collectionView
+                                            layout:(FMMosaicLayout *)collectionViewLayout;
+- (BOOL)footerShouldOverlayContentInCollectionView:(UICollectionView *)collectionView
+                                            layout:(FMMosaicLayout *)collectionViewLayout;
 
 @end
 

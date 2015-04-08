@@ -101,7 +101,7 @@ static const NSInteger kFMMosaicColumnCount = 2;
                                withReuseIdentifier:[FMFooterView reuseIdentifier] forIndexPath:indexPath];
         
         NSInteger assetCount = [self collectionView:self.collectionView numberOfItemsInSection:indexPath.section];
-        footerView.titleLabel.text = assetCount == 1 ? @"1 ASSET" : [NSString stringWithFormat:@"%ld ASSETS", assetCount];
+        footerView.titleLabel.text = assetCount == 1 ? @"1 ASSET" : [NSString stringWithFormat:@"%ld ASSETS", (long)assetCount];
         reusableView = footerView;
     }
     

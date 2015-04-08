@@ -1,4 +1,4 @@
-# FMMosaicLayout
+dsd# FMMosaicLayout
 
 [![CI Status](http://img.shields.io/travis/JVillella/FMMosaicLayout.svg?style=flat)](https://travis-ci.org/JVillella/FMMosaicLayout)
 [![Version](https://img.shields.io/cocoapods/v/FMMosaicLayout.svg?style=flat)](http://cocoadocs.org/docsets/FMMosaicLayout)
@@ -10,6 +10,7 @@ FMMosaicLayout is a mosiac collection view layout. There are a great number of m
 ![Portrait Screenshot](http://fmitech.github.io/FMMosaicLayout/Screenshots/portrait-3.png);
 
 ## Usage
+
 FMMosaicLayout is very easy to use. Below is all you need to get going.
 
     - (void)viewDidLoad {
@@ -50,11 +51,29 @@ This allows you to specify when you want to place a large or small mosaic cell.
 Here you can specify a custom `UIEdgeInsets` for each section.
 
 ##### Interitem Spacing
-    
+
     - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
             interitemSpacingForSectionAtIndex:(NSInteger)section;
 
 Here you can specify the spacing between cells.
+
+##### Header and Footer Support
+
+Below are the optional methods you can make use of to customize your headers and footers. The first methods are to set the height of your header/footers.
+
+    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+     heightForHeaderInSection:(NSInteger)section;
+
+    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
+     heightForFooterInSection:(NSInteger)section;
+
+If you want your header and/or to overlay your mosaic cells implement the following methods below in your delegate and have them return `YES`. The default is `NO`.
+
+    - (BOOL)headerShouldOverlayContentInCollectionView:(UICollectionView *)collectionView
+                                                layout:(FMMosaicLayout *)collectionViewLayout;
+
+    - (BOOL)footerShouldOverlayContentInCollectionView:(UICollectionView *)collectionView
+                                                layout:(FMMosaicLayout *)collectionViewLayout;
 
 ## Installation
 
