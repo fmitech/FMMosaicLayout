@@ -27,7 +27,9 @@
 
 typedef NS_ENUM(NSUInteger, FMMosaicCellSize) {
     FMMosaicCellSizeSmall,
-    FMMosaicCellSizeBig
+    FMMosaicCellSizeBig,
+    FMMosaicCellSizeWide,
+    FMMosaicCellSizeWide4x
 };
 
 @protocol FMMosaicLayoutDelegate <UICollectionViewDelegate>
