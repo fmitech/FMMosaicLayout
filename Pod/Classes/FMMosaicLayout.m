@@ -40,11 +40,6 @@ static const BOOL kFMDefaultFooterShouldOverlayContent = NO;
 @property (nonatomic, strong) NSMutableArray *columnHeightsPerSection;
 
 /**
- *  A 2D array holding an array of columns heights for each section
- */
-@property (nonatomic, strong) NSMutableArray *wide4xMosaicCellIndexPathsBuffer;
-
-/**
  *  Array of cached layout attributes for each cell
  */
 @property (nonatomic, strong) NSMutableDictionary *cellLayoutAttributes;
